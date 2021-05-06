@@ -1,0 +1,10 @@
+{
+    "apps": [
+        {
+            "name": "Frontend Herocartoon",
+            "script": "yarn",
+            "args" : "start",
+            "exec_mode": "fork"
+        }
+    ]
+  }
