@@ -4,8 +4,8 @@ const SizeChart = () => {
   return (
     <div className="md:flex md:flex-wrap sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 max-w-3xl">
       <div className="my-5 px-5 w-full">
-        <p className="text-center font-bold text-xl text-blue-500 my-3 sm:text-4xl">
-          --- ขนาดเสื้อ Size Chart ---
+        <p className="text-center font-bold text-xl my-3 sm:text-4xl">
+          ขนาดเสื้อและราคา
         </p>
 
         <SRLWrapper>

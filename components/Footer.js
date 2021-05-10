@@ -3,8 +3,8 @@ export default function Footer() {
   return (
     <div className="bg-gray-800">
       <div className="md:container md:mx-auto text-white">
-        <div className="flex flex-wrap -mx-px overflow-hidden sm:-mx-px md:-mx-px lg:-mx-px xl:-mx-px justify-center">
-          <div className="my-px w-full overflow-hidden sm:my-px sm:px-px md:my-px md:px-px md:w-1/2 lg:my-px lg:px-px lg:w-1/4 xl:my-px xl:px-px xl:w-1/4 ">
+        <div className="flex flex-wrap  overflow-hidden  justify-center">
+          <div className=" w-full overflow-hidden md:w-1/2  lg:w-1/2  xl:w-1/4 ">
             <img
               className="hidden lg:block h-8 w-auto"
               src="/logo.png"
@@ -23,7 +23,7 @@ export default function Footer() {
               loading="lazy"
             ></img>
           </div>
-          <div className="my-px  w-full overflow-hidden sm:my-px sm:px-px md:my-px md:px-px md:w-1/2 lg:my-px lg:px-px lg:w-1/4 xl:my-px xl:px-px xl:w-1/4">
+          <div className="  w-full overflow-hidden  md:w-1/2  lg:w-1/2  xl:w-1/4">
             <p className="text-2xl my-2 text-center font-bold underline">
               ติดต่อเรา
             </p>
@@ -48,19 +48,19 @@ export default function Footer() {
               </p>
             </a>
           </div>
-          <div className="my-px  w-full overflow-hidden sm:my-px sm:px-px md:my-px md:px-px md:w-1/2 lg:my-px lg:px-px lg:w-1/4 xl:my-px xl:px-px xl:w-1/4 ">
+          <div className="w-full overflow-hidden  md:w-1/2  lg:w-1/2  xl:w-1/4 ">
             <div className="my-2">
               <p className="text-xl my-2 text-center ">
                 <i className="fab fa-facebook"></i> Facebook
               </p>
               <center>
                 <iframe
-                  data-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fherocartoontshirt%2F&tabs&width=360&height=200&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=false&appId=196640848959446"
-                  width="360"
+                  data-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fherocartoontshirt%2F&tabs&width=300&height=200&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=false&appId=196640848959446"
+                  width="300"
                   height="200"
                   className="facebook lazyload"
                   scrolling="no"
-                  frameBorder="false"
+                  frameBorder="0"
                   allowFullScreen={true}
                   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                 ></iframe>
