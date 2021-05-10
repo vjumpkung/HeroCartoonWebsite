@@ -3,7 +3,10 @@
 @tailwind components;
 /* purgecss end ignore */
 @tailwind utilities;
-
+.facebook {
+  border: none;
+  overflow: hidden;
+}
 button.spinner {
   height: 40px;
   width: 40px;

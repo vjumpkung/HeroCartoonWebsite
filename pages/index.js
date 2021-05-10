@@ -1,7 +1,6 @@
 import axios from "axios";
 import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from "next/router";
 const Home = ({ kamen_riders, sp_collections, um_collections, error }) => {
   if (error) {
     return <div>An error occured: {error.message}</div>;
@@ -9,7 +8,7 @@ const Home = ({ kamen_riders, sp_collections, um_collections, error }) => {
   return (
     <>
       <Head>
-        <title>เสื้อยืด Hero Cartoon</title>
+        <title>หน้าแรก - เสื้อยืด Hero Cartoon</title>
       </Head>
       <div className="md:container md:mx-auto my-5 px-5 sm:my-6 sm:px-6 md:my-6 md:px-6 lg:my-6 lg:px-6 xl:my-6 xl:px-6">
         {/*MR Collection */}

@@ -1,7 +1,9 @@
-// Example code
+import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import axios from "axios";
 import { useRouter } from "next/router";
+import SizeChart from "../../components/SizeChart";
 import Details from "../../components/Details";
+import Head from "next/head";
 
 function MRCollections({ kamen_riders }) {
   const router = useRouter();
@@ -15,39 +17,51 @@ function MRCollections({ kamen_riders }) {
     );
   // Render post...
   return (
-    <div className="sm:container sm:mx-auto my-5 px-5 sm:my-6 sm:px-6 md:my-6 md:px-6 lg:my-6 lg:px-6 xl:my-6 xl:px-6">
-      <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center items-center">
-        <div className="my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 lg:my-6 lg:px-6 lg:w-2/5 xl:my-6 xl:px-6 xl:w-2/5">
-          <center>
-            <img
-              src={
-                "https://admin.herocartoontshirt.my.to" +
-                kamen_riders.picture.formats.small.url
-              }
-              width={kamen_riders.picture.formats.small.width}
-              height={kamen_riders.picture.formats.small.height}
-              alt={kamen_riders.picture.name}
-              className="w-25"
-              loading="lazy"
-            ></img>
-          </center>
+    <SimpleReactLightbox>
+      <Head>
+        <title>{kamen_riders.name} - เสื้อยืด Hero Cartoon</title>
+      </Head>
+      <div className="xl:container xl:mx-auto">
+        <div className="bg-gradient-to-r from-green-400 to-blue-500 w-full h-1 mt-2"></div>
+        <div className="md:flex md:flex-wrap  justify-center items-center">
+          <div className="my-5  w-full sm:my-6 sm:px-6 md:my-6 lg:my-6 lg:px-6 lg:w-1/2 xl:my-6 xl:px-6 xl:w-1/2">
+            <SRLWrapper>
+              <a
+                href={
+                  "https://admin.herocartoontshirt.my.to" +
+                  kamen_riders.picture.url
+                }
+              >
+                <>
+                  <img
+                    src={
+                      "https://admin.herocartoontshirt.my.to" +
+                      kamen_riders.picture.formats.small.url
+                    }
+                    width={kamen_riders.picture.formats.small.width}
+                    height={kamen_riders.picture.formats.small.height}
+                    alt={kamen_riders.picture.name}
+                    className=" w-4/5 mx-auto"
+                    loading="lazy"
+                  ></img>
+                </>
+              </a>
+            </SRLWrapper>
+          </div>
+          <div className="my-5  w-full sm:my-6 sm:px-6 md:my-6 lg:my-6 lg:px-6 lg:w-1/2 xl:my-6 xl:px-6 xl:w-1/2">
+            <h1 className="text-6xl font-bold text-center">
+              {kamen_riders.name}
+            </h1>
+            <h2 className="text-center text-2xl mb-2">
+              {kamen_riders.description}
+            </h2>
+            <Details />
+          </div>
+          <SizeChart />
         </div>
-        <div className="my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 lg:my-6 lg:px-6 lg:w-3/5 xl:my-6 xl:px-6 xl:w-3/5">
-          <h1 className="text-6xl font-bold text-center">
-            {kamen_riders.name}
-          </h1>
-          <p className="text-center text-2xl mb-2">
-            {kamen_riders.description}
-          </p>
-          <Details />
-          <p className="text-center">
-            <button className="backer" onClick={() => router.back()}>
-              Back
-            </button>
-          </p>
-        </div>
+        <div className="bg-gradient-to-r from-green-400 to-blue-500 w-full h-1 mb-2"></div>
       </div>
-    </div>
+    </SimpleReactLightbox>
   );
 }
 
