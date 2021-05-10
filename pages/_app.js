@@ -17,10 +17,11 @@ function MyApp({Component, pageProps, route}) {
     return (
         <>
             <Head>
-               <link
+              <link
                 rel="stylesheet"
                 href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
-          />
+              />
+              <link rel="preconnect" href="https://use.fontawesome.com"/>
              </Head>
               <Messenger/>
               <Layout/>
