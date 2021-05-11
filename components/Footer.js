@@ -39,7 +39,7 @@ export default function Footer() {
             </a>
             <a href="https://line.me/R/ti/p/%40004ktxqi">
               <p className="text-xl my-2 text-center ">
-                <i className="fab fa-line"></i> : จิ้มลิ้งนี้เลยค่ะ
+                <i className="fab fa-line"></i> : @004ktxqi
               </p>
             </a>
             <a href="https://herocartoontshirt.my.to">
