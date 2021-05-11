@@ -32,22 +32,20 @@ function MyApp({ Component, pageProps, route }) {
         <link rel="preconnect" href="https://kit.fontawesome.com" />
         <meta
           name="description"
-          content="เสื้อยืดสกรีนลายฮีโร่ญี่ปุ่น สั่งซื้อได้ทาง messenger"
+          content="มาย้อนเวลาคิดถึงความสุขในวัยเด็กกับเสื้อยืดฮีโร่การ์ตูน
+          เสื้อยืดสกรีนลายด้วยระบบดิจิตอลในรูปแบบของฮีโร่โทคุซัทสึ"
         />
-        <meta
-          name="description"
-          content="เสื้อยืดสกรีนลายฮีโร่ญี่ปุ่น สั่งซื้อได้ทาง messenger"
-        />
-        <meta property="og:url" content="https://herocartoontshirt.my.to" />
+        <meta property="og:url" content="https://herocartoontshirt.com" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="เสื้อยืด Hero Cartoon" />
         <meta
           property="og:description"
-          content="เสื้อยืดสกรีนลายฮีโร่ญี่ปุ่น สั่งซื้อได้ทาง messenger"
+          content="มาย้อนเวลาคิดถึงความสุขในวัยเด็กกับเสื้อยืดฮีโร่การ์ตูน
+          เสื้อยืดสกรีนลายด้วยระบบดิจิตอลในรูปแบบของฮีโร่โทคุซัทสึ"
         />
         <meta
           property="og:image"
-          content="https://admin.herocartoontshirt.my.to/uploads/ogbanner_831b53be8b.jpg"
+          content="https://herocartoontshirt.com/ogbanner.jpg"
         />
       </Head>
       <Messenger />
