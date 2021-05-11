@@ -43,8 +43,11 @@ const Home = ({ kamen_riders, sp_collections, um_collections, error }) => {
                   <p className="text-center text-3xl font-bold">
                     {kamen_riders.name}
                   </p>
-                  <p className="text-center text-xl mb-8">
+                  <p className="text-center text-xl">
                     {kamen_riders.description}
+                  </p>
+                  <p className="text-center text-sm text-gray-400 mb-3">
+                    ภาพตัวอย่างสินค้าใช้ในการโฆษณาเท่านั้น
                   </p>
                 </a>
               </Link>
@@ -85,8 +88,11 @@ const Home = ({ kamen_riders, sp_collections, um_collections, error }) => {
                   <p className="text-center text-3xl font-bold">
                     {sp_collections.name}
                   </p>
-                  <p className="text-center text-xl mb-8">
+                  <p className="text-center text-xl">
                     {sp_collections.description}
+                  </p>
+                  <p className="text-center text-sm text-gray-400 mb-3">
+                    ภาพตัวอย่างสินค้าใช้ในการโฆษณาเท่านั้น
                   </p>
                 </a>
               </Link>
@@ -127,8 +133,11 @@ const Home = ({ kamen_riders, sp_collections, um_collections, error }) => {
                   <p className="text-center text-3xl font-bold">
                     {um_collections.name}
                   </p>
-                  <p className="text-center text-xl mb-8">
+                  <p className="text-center text-xl">
                     {um_collections.description}
+                  </p>
+                  <p className="text-center text-sm text-gray-400 mb-3">
+                    ภาพตัวอย่างสินค้าใช้ในการโฆษณาเท่านั้น
                   </p>
                 </a>
               </Link>

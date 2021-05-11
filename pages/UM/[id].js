@@ -71,7 +71,6 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       um_collections: um_collections_data[0],
-      revalidate: 1, // In seconds
     },
   };
 };

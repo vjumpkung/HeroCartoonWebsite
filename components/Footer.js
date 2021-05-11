@@ -33,17 +33,17 @@ export default function Footer() {
               </p>
             </a>
             <a href="https://www.facebook.com/herocartoontshirt">
-              <p className="text-xl my-2 text-center ">
+              <p className="text-xl my-2 text-center text-blue-500">
                 <i className="fab fa-facebook"></i> : เสื้อยืด Hero Cartoon
               </p>
             </a>
             <a href="https://line.me/R/ti/p/%40004ktxqi">
-              <p className="text-xl my-2 text-center ">
+              <p className="text-xl my-2 text-center text-green-500">
                 <i className="fab fa-line"></i> : @004ktxqi
               </p>
             </a>
             <a href="https://herocartoontshirt.my.to">
-              <p className="text-xl my-2 text-center ">
+              <p className="text-xl my-2 text-center text-red-500">
                 <i className="fas fa-globe"></i> : herocartoontshirt.my.to
               </p>
             </a>

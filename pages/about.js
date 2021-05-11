@@ -4,29 +4,40 @@ const About = () => {
     <>
       <Head>
         <title>เกี่ยวกับเรา - เสื้อยืด Hero Cartoon</title>
-
       </Head>
-      <div class="flex h-screen ">
-        <div class="m-auto">
-          <h1 className="text-3xl lg:text-6xl font-bold text-center">เกี่ยวกับเรา</h1>
+      <div className="flex h-screen text-gray-500">
+        <div className="m-auto">
+          <h1 className="text-3xl lg:text-6xl font-bold text-center">
+            เกี่ยวกับเรา
+          </h1>
+          <div className="max-w-md">
+            <p className="py-6">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"มาย้อนเวลาคิดถึงความสุขในวัยเด็กกับเสื้อยืดฮีโร่การ์ตูน
+              เสื้อยืดสกรีนลายด้วยระบบดิจิตอลในรูปแบบของฮีโร่โทคุซัทสึ
+              บนเนื้อผ้าที่นุ่ม ใส่สบาย ไม่หด ไม่ย้วย รีดง่าย พร้อมแพ็คเกจที่สวยงาม
+              โบนัสพิเศษกับโปสการ์ดฮีโร่ในตำนานมาให้สะสมด้วยค่ะ
+              มาเติมความฝันในวัยเด็กพร้อมกับความสุขในการสวมใส่เสื้อยืดฮีโร่ด้วยกันนะคะ"
+              <p className="text-center  text-lg">ทีมงานเสื้อยืดฮีโร่การ์ตูน</p>
+            </p>
+          </div>
           <a href="tel:0948541177">
-            <p className="text-xl my-2 text-center ">
+            <p className="text-xl my-2 text-center">
               <i className="fas fa-phone-alt"></i> : 0948541177
             </p>
           </a>
           <a href="https://www.facebook.com/herocartoontshirt">
             <p className="text-xl my-2 text-center ">
-              <i class="fab fa-facebook"></i> : เสื้อยืด Hero Cartoon
+              <i className="fab fa-facebook"></i> : เสื้อยืด Hero Cartoon
             </p>
           </a>
           <a href="https://line.me/R/ti/p/%40004ktxqi">
             <p className="text-xl my-2 text-center ">
-              <i class="fab fa-line"></i> : @004ktxqi
+              <i className="fab fa-line"></i> : @004ktxqi
             </p>
           </a>
           <a href="https://herocartoontshirt.my.to">
             <p className="text-xl my-2 text-center ">
-              <i class="fas fa-globe"></i> : herocartoontshirt.my.to
+              <i className="fas fa-globe"></i> : herocartoontshirt.my.to
             </p>
           </a>
         </div>

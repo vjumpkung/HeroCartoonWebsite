@@ -78,7 +78,6 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       kamen_riders: kamen_riders_data[0],
-      revalidate: 1, // In seconds
     },
   };
 };

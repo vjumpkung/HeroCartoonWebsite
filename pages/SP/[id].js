@@ -71,7 +71,6 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       sp_collections: sp_collections_data[0],
-      revalidate: 1, // In seconds
     },
   };
 };
