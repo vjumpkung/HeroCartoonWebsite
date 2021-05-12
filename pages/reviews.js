@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import { gql, useQuery } from "@apollo/client";
 import client from "../apollo-client";
 import React, { Fragment } from "react";
-import Head from 'next/head'
+import Head from "next/head";
 
-export default function Gallery({ items }) {
+export default function Review({ items }) {
   const router = useRouter();
   if (router.isFallback)
     return (
@@ -20,10 +20,10 @@ export default function Gallery({ items }) {
   return (
     <div className="container mx-auto">
       <h1 className=" text-3xl lg:text-5xl text-center py-3 font-black">
-        Gallery
+        รีวิวจากลูกค้า
       </h1>
       <Head>
-        <title> Gallery - เสื้อยืด Hero Cartoon</title>
+        <title> Reviews - เสื้อยืด Hero Cartoon</title>
       </Head>
       <SimpleReactLightbox>
         <SRLWrapper>
@@ -57,7 +57,7 @@ export async function getServerSideProps() {
   const { data } = await client.query({
     query: gql`
       query {
-        galleries {
+        reviews {
           picture {
             name
             id
@@ -71,7 +71,7 @@ export async function getServerSideProps() {
   });
   return {
     props: {
-      items: data.galleries,
+      items: data.reviews,
     },
   };
 }
