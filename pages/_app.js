@@ -4,7 +4,6 @@ import Messenger from "../components/Messenger";
 import NProgress from "nprogress";
 import Head from "next/head";
 import Router from "next/router";
-import Footer from "../components/Footer";
 
 Router.onRouteChangeStart = (url) => {
   NProgress.start();
@@ -45,13 +44,13 @@ function MyApp({ Component, pageProps, route }) {
         />
         <meta
           property="og:image"
-          content="https://herocartoontshirt.com/ogbanner.jpg"
+          content="https://herocartoontshirt.com/ogbanner2.jpg"
         />
       </Head>
       <Messenger />
-      <Layout />
-      <Component {...pageProps} key={route} />
-      <Footer />
+      <Layout>
+        <Component {...pageProps} key={route} />
+      </Layout>
     </>
   );
 }

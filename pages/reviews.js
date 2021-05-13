@@ -9,13 +9,11 @@ export default function Review({ items }) {
   const router = useRouter();
   if (router.isFallback)
     return (
-      <>
-        <div className="flex h-screen">
-          <div className="m-auto">
-            <button className="spinner"></button>
-          </div>
+      <div className="flex h-screen">
+        <div className="m-auto">
+          <button className="spinner"></button>
         </div>
-      </>
+      </div>
     );
   return (
     <div className="container mx-auto">
@@ -42,7 +40,7 @@ export default function Review({ items }) {
                       className="mx-auto square transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-105"
                       loading="lazy"
                       alt={object.name}
-                    ></img>
+                    />
                   </div>
                 ))}
               </Fragment>

@@ -1,7 +1,9 @@
 import axios from "axios";
 import Head from "next/head";
 import Link from "next/link";
-const Home = ({ kamen_riders, sp_collections, um_collections, error }) => {
+import { gql, useQuery } from "@apollo/client";
+import client from "../apollo-client";
+const Home = ({ items, items2, items3, error }) => {
   if (error) {
     return <div>An error occured: {error.message}</div>;
   }
@@ -16,7 +18,7 @@ const Home = ({ kamen_riders, sp_collections, um_collections, error }) => {
           Masked Rider Collections
         </h2>
         <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
-          {kamen_riders.map((kamen_riders) => (
+          {items.map((kamen_riders) => (
             <div
               key={kamen_riders.id}
               className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
@@ -38,7 +40,7 @@ const Home = ({ kamen_riders, sp_collections, um_collections, error }) => {
                       alt={kamen_riders.picture.name}
                       className="object-fill w-full"
                       loading="lazy"
-                    ></img>
+                    />
                   </p>
                   <p className="text-center text-3xl font-bold">
                     {kamen_riders.name}
@@ -61,7 +63,7 @@ const Home = ({ kamen_riders, sp_collections, um_collections, error }) => {
         </h2>
 
         <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
-          {sp_collections.map((sp_collections) => (
+          {items2.map((sp_collections) => (
             <div
               key={sp_collections.id}
               className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
@@ -83,7 +85,7 @@ const Home = ({ kamen_riders, sp_collections, um_collections, error }) => {
                       alt={sp_collections.picture.name}
                       className="object-fill w-full"
                       loading="lazy"
-                    ></img>
+                    />
                   </p>
                   <p className="text-center text-3xl font-bold">
                     {sp_collections.name}
@@ -106,7 +108,7 @@ const Home = ({ kamen_riders, sp_collections, um_collections, error }) => {
         </h2>
 
         <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
-          {um_collections.map((um_collections) => (
+          {items3.map((um_collections) => (
             <div
               key={um_collections.id}
               className="transition delay-75 duration-300 ease-in-out my-5 px-5 pt-3 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
@@ -128,7 +130,7 @@ const Home = ({ kamen_riders, sp_collections, um_collections, error }) => {
                       alt={um_collections.picture.name}
                       className="object-fill w-full"
                       loading="lazy"
-                    ></img>
+                    />
                   </p>
                   <p className="text-center text-3xl font-bold">
                     {um_collections.name}
@@ -150,20 +152,42 @@ const Home = ({ kamen_riders, sp_collections, um_collections, error }) => {
 };
 export async function getStaticProps(context) {
   try {
-    const res = await axios.get(
-      "https://admin.herocartoontshirt.my.to/kamen-riders"
-    );
-    const res2 = await axios.get(
-      "https://admin.herocartoontshirt.my.to/sp-collections"
-    );
-    const res3 = await axios.get(
-      "https://admin.herocartoontshirt.my.to/UM-collections"
-    );
-    const sp_collections = res2.data;
-    const kamen_riders = res.data;
-    const um_collections = res3.data;
+    const { data } = await client.query({
+      query: gql`
+        query {
+          kamenRiders {
+            id
+            name
+            description
+            picture {
+              formats
+            }
+          }
+          spCollections {
+            id
+            name
+            description
+            picture {
+              formats
+            }
+          }
+          umCollections {
+            id
+            name
+            description
+            picture {
+              formats
+            }
+          }
+        }
+      `,
+    });
     return {
-      props: { kamen_riders, sp_collections, um_collections },
+      props: {
+        items: data.kamenRiders,
+        items2: data.spCollections,
+        items3: data.umCollections,
+      },
       revalidate: 1, // In seconds
     };
   } catch (error) {

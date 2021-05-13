@@ -3,19 +3,17 @@ import { useRouter } from "next/router";
 import { gql, useQuery } from "@apollo/client";
 import client from "../apollo-client";
 import React, { Fragment } from "react";
-import Head from 'next/head'
+import Head from "next/head";
 
 export default function Gallery({ items }) {
   const router = useRouter();
   if (router.isFallback)
     return (
-      <>
-        <div className="flex h-screen">
-          <div className="m-auto">
-            <button className="spinner"></button>
-          </div>
+      <div className="flex h-screen">
+        <div className="m-auto">
+          <button className="spinner"></button>
         </div>
-      </>
+      </div>
     );
   return (
     <div className="container mx-auto">
@@ -42,7 +40,7 @@ export default function Gallery({ items }) {
                       className="mx-auto square transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-105"
                       loading="lazy"
                       alt={object.name}
-                    ></img>
+                    />
                   </div>
                 ))}
               </Fragment>
