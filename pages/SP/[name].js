@@ -96,6 +96,7 @@ export const getStaticPaths = async () => {
           description
           id
           picture {
+            url
             formats
           }
         }
