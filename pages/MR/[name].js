@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import SizeChart from "../../components/SizeChart";
 import Details from "../../components/Details";
 import Head from "next/head";
+import Image from "next/image";
 
 function MRCollections({ kamen_riders }) {
   const router = useRouter();
@@ -34,7 +35,7 @@ function MRCollections({ kamen_riders }) {
                 }
               >
                 <>
-                  <img
+                  <Image
                     src={
                       "https://admin.herocartoontshirt.com" +
                       kamen_riders.picture.formats.small.url
@@ -44,7 +45,7 @@ function MRCollections({ kamen_riders }) {
                     alt={kamen_riders.picture.name}
                     className=" w-4/5 mx-auto"
                     loading="lazy"
-                  ></img>
+                  ></Image>
                 </>
               </a>
             </SRLWrapper>

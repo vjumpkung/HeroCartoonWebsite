@@ -34,8 +34,10 @@ const Header = () => {
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     className="block lg:hidden h-8 w-auto"
-                    src="/mobilelogo.png"
+                    src="/android-icon-48x48.png"
                     alt="Hero Cartoon Tshirt"
+                    width="32"
+                    height="32"
                   />
                   <img
                     className="hidden lg:block h-8 w-auto"

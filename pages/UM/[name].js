@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import SizeChart from "../../components/SizeChart";
 import Details from "../../components/Details";
 import Head from "next/head";
+import Image from "next/image";
 
 export default function SPCollections({ um_collections }) {
   const router = useRouter();
@@ -27,7 +28,7 @@ export default function SPCollections({ um_collections }) {
                 }
               >
                 <>
-                  <img
+                  <Image
                     src={
                       "https://admin.herocartoontshirt.com" +
                       um_collections.picture.formats.small.url
@@ -37,7 +38,7 @@ export default function SPCollections({ um_collections }) {
                     alt={um_collections.picture.name}
                     className=" w-4/5 mx-auto"
                     loading="lazy"
-                  ></img>
+                  ></Image>
                 </>
               </a>
             </SRLWrapper>
