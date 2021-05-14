@@ -28,7 +28,7 @@ export default function SPCollections({ sp_collections }) {
                 }
               >
                 <>
-                  <Image
+                  <img
                     src={
                       "https://admin.herocartoontshirt.com" +
                       sp_collections.picture.formats.small.url
@@ -38,7 +38,7 @@ export default function SPCollections({ sp_collections }) {
                     alt={sp_collections.picture.name}
                     className=" w-4/5 mx-auto"
                     loading="lazy"
-                  ></Image>
+                  ></img>
                 </>
               </a>
             </SRLWrapper>

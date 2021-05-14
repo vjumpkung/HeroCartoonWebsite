@@ -35,7 +35,7 @@ function MRCollections({ kamen_riders }) {
                 }
               >
                 <>
-                  <Image
+                  <img
                     src={
                       "https://admin.herocartoontshirt.com" +
                       kamen_riders.picture.formats.small.url
@@ -45,7 +45,7 @@ function MRCollections({ kamen_riders }) {
                     alt={kamen_riders.picture.name}
                     className=" w-4/5 mx-auto"
                     loading="lazy"
-                  ></Image>
+                  ></img>
                 </>
               </a>
             </SRLWrapper>
