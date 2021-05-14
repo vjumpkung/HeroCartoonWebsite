@@ -25,7 +25,7 @@ export default function Gallery({ items }) {
       </Head>
       <SimpleReactLightbox>
         <SRLWrapper>
-          <div className="flex flex-wrap justify-center">
+          <div className="flex flex-wrap-reverse justify-center">
             {items.map((item) => (
               <Fragment key={item.id}>
                 {item.picture.map((object) => (

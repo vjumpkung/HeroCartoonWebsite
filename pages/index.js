@@ -1,4 +1,3 @@
-import axios from "axios";
 import Head from "next/head";
 import Link from "next/link";
 import { gql, useQuery } from "@apollo/client";
@@ -24,8 +23,8 @@ const Home = ({ items, items2, items3, error }) => {
               className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
             >
               <Link
-                href="/MR/[id]"
-                as={`/MR/${kamen_riders.id}`}
+                href="/MR/[name]"
+                as={`/MR/${kamen_riders.name}`}
                 key={kamen_riders.id}
               >
                 <a>
@@ -69,8 +68,8 @@ const Home = ({ items, items2, items3, error }) => {
               className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
             >
               <Link
-                href="/SP/[id]"
-                as={`/SP/${sp_collections.id}`}
+                href="/SP/[name]"
+                as={`/SP/${sp_collections.name}`}
                 key={sp_collections.id}
               >
                 <a>
@@ -114,8 +113,8 @@ const Home = ({ items, items2, items3, error }) => {
               className="transition delay-75 duration-300 ease-in-out my-5 px-5 pt-3 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
             >
               <Link
-                href="/UM/[id]"
-                as={`/UM/${um_collections.id}`}
+                href="/UM/[name]"
+                as={`/UM/${um_collections.name}`}
                 key={um_collections.id}
               >
                 <a>

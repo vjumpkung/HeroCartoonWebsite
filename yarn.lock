@@ -3339,6 +3339,11 @@ react-is@16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-live-chat-loader@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/react-live-chat-loader/-/react-live-chat-loader-2.3.3.tgz#a48fa07ac62ed80bcca06863321f8b10cea3024b"
+  integrity sha512-lpbxA96t+XOlsYTtati0jVclRw77oK5o5ihm7AHw7FNtl29iCtxgAiXLVek5cAJwrc9m9mcy9wz26JlJJc7qhQ==
+
 react-masonry-component@^6.2.1:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/react-masonry-component/-/react-masonry-component-6.2.1.tgz#dd23b3129d6b922852b160472e6c9a6256fcdb8a"

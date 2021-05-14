@@ -1,5 +1,6 @@
 import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
-import axios from "axios";
+import { gql, useQuery } from "@apollo/client";
+import client from "../../apollo-client";
 import { useRouter } from "next/router";
 import SizeChart from "../../components/SizeChart";
 import Details from "../../components/Details";
@@ -41,7 +42,7 @@ export default function SPCollections({ um_collections }) {
               </a>
             </SRLWrapper>
           </div>
-          <div className="my-5  w-full sm:my-6 sm:px-6 md:my-6 lg:my-6 lg:px-6 lg:w-1/2 xl:my-6 xl:px-6 xl:w-1/2">
+          <div className="my-5 w-full sm:my-6 sm:px-6 md:my-6 lg:my-6 lg:px-6 lg:w-1/2 xl:my-6 xl:px-6 xl:w-1/2">
             <h1 className="text-6xl font-bold text-center">
               {um_collections.name}
             </h1>
@@ -60,13 +61,23 @@ export default function SPCollections({ um_collections }) {
 
 export const getStaticProps = async ({ params }) => {
   //data fetching
-  const res = await axios.get(
-    "https://admin.herocartoontshirt.my.to/UM-collections"
-  );
-  const um_collections = res.data;
+  const { data } = await client.query({
+    query: gql`
+      query {
+        umCollections {
+          name
+          description
+          id
+          picture {
+            formats
+          }
+        }
+      }
+    `,
+  });
   //parsing
-  const um_collections_data = um_collections.filter(
-    (p) => p.id.toString() === params.id
+  const um_collections_data = data.umCollections.filter(
+    (p) => p.name.toString() === params.name
   );
   return {
     props: {
@@ -77,12 +88,22 @@ export const getStaticProps = async ({ params }) => {
 
 export const getStaticPaths = async () => {
   //data fetching
-  const res = await axios.get(
-    "https://admin.herocartoontshirt.my.to/UM-collections"
-  );
-  const um_collections = res.data;
-  const paths = um_collections.map((um_collections_paths) => ({
-    params: { id: um_collections_paths.id.toString() },
+  const { data } = await client.query({
+    query: gql`
+      query {
+        umCollections {
+          name
+          description
+          id
+          picture {
+            formats
+          }
+        }
+      }
+    `,
+  });
+  const paths = data.umCollections.map((um_collections_paths) => ({
+    params: { name: um_collections_paths.name.toString() },
   }));
 
   return { paths, fallback: false };

@@ -1,46 +1,40 @@
 import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
-import axios from "axios";
+import { gql, useQuery } from "@apollo/client";
+import client from "../../apollo-client";
 import { useRouter } from "next/router";
 import SizeChart from "../../components/SizeChart";
 import Details from "../../components/Details";
 import Head from "next/head";
 
-function MRCollections({ kamen_riders }) {
+export default function SPCollections({ sp_collections }) {
   const router = useRouter();
-  if (router.isFallback)
-    return (
-      <>
-        <div className="md:container md:mx-auto">
-          <button className="spinner"></button>
-        </div>
-      </>
-    );
+  if (router.isFallback) return <div>Loading...</div>;
   // Render post...
   return (
     <SimpleReactLightbox>
       <Head>
-        <title>{kamen_riders.name} - เสื้อยืด Hero Cartoon</title>
+        <title>{sp_collections.name} - เสื้อยืด Hero Cartoon</title>
       </Head>
       <div className="xl:container xl:mx-auto">
         <div className="bg-gradient-to-r from-green-400 to-blue-500 w-full h-1 mt-2"></div>
         <div className="md:flex md:flex-wrap  justify-center items-center">
-          <div className="my-5  w-full sm:my-6 sm:px-6 md:my-6 lg:my-6 lg:px-6 lg:w-1/2 xl:my-6 xl:px-6 xl:w-1/2">
+          <div className="my-5 w-full sm:my-6 sm:px-6 md:my-6 lg:my-6 lg:px-6 lg:w-1/2 xl:my-6 xl:px-6 xl:w-1/2">
             <SRLWrapper>
               <a
                 href={
                   "https://admin.herocartoontshirt.my.to" +
-                  kamen_riders.picture.url
+                  sp_collections.picture.url
                 }
               >
                 <>
                   <img
                     src={
                       "https://admin.herocartoontshirt.my.to" +
-                      kamen_riders.picture.formats.small.url
+                      sp_collections.picture.formats.small.url
                     }
-                    width={kamen_riders.picture.formats.small.width}
-                    height={kamen_riders.picture.formats.small.height}
-                    alt={kamen_riders.picture.name}
+                    width={sp_collections.picture.formats.small.width}
+                    height={sp_collections.picture.formats.small.height}
+                    alt={sp_collections.picture.name}
                     className=" w-4/5 mx-auto"
                     loading="lazy"
                   ></img>
@@ -50,10 +44,10 @@ function MRCollections({ kamen_riders }) {
           </div>
           <div className="my-5  w-full sm:my-6 sm:px-6 md:my-6 lg:my-6 lg:px-6 lg:w-1/2 xl:my-6 xl:px-6 xl:w-1/2">
             <h1 className="text-6xl font-bold text-center">
-              {kamen_riders.name}
+              {sp_collections.name}
             </h1>
             <h2 className="text-center text-2xl mb-2">
-              {kamen_riders.description}
+              {sp_collections.description}
             </h2>
             <Details />
           </div>
@@ -67,32 +61,50 @@ function MRCollections({ kamen_riders }) {
 
 export const getStaticProps = async ({ params }) => {
   //data fetching
-  const res = await axios.get(
-    "https://admin.herocartoontshirt.my.to/kamen-riders"
-  );
-  const kamen_riders = res.data;
+  const { data } = await client.query({
+    query: gql`
+      query {
+        spCollections {
+          name
+          description
+          id
+          picture {
+            formats
+          }
+        }
+      }
+    `,
+  });
   //parsing
-  const kamen_riders_data = kamen_riders.filter(
-    (p) => p.id.toString() === params.id
+  const sp_collections_data = data.spCollections.filter(
+    (p) => p.name.toString() === params.name
   );
   return {
     props: {
-      kamen_riders: kamen_riders_data[0],
+      sp_collections: sp_collections_data[0],
     },
   };
 };
 
 export const getStaticPaths = async () => {
   //data fetching
-  const res = await axios.get(
-    "https://admin.herocartoontshirt.my.to/kamen-riders"
-  );
-  const kamen_riders = res.data;
-  const paths = kamen_riders.map((kamen_riders_paths) => ({
-    params: { id: kamen_riders_paths.id.toString() },
+  const { data } = await client.query({
+    query: gql`
+      query {
+        spCollections {
+          name
+          description
+          id
+          picture {
+            formats
+          }
+        }
+      }
+    `,
+  });
+  const paths = data.spCollections.map((sp_collections_paths) => ({
+    params: { name: sp_collections_paths.name.toString() },
   }));
 
   return { paths, fallback: false };
 };
-
-export default MRCollections;
