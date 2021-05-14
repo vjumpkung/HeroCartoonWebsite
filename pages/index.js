@@ -29,19 +29,17 @@ const Home = ({ items, items2, items3, error }) => {
                 key={kamen_riders.id}
               >
                 <a>
-                  <p className="text-center">
-                    <Image
-                      src={
-                        "https://admin.herocartoontshirt.com" +
-                        kamen_riders.picture.formats.small.url
-                      }
-                      width={kamen_riders.picture.formats.small.width}
-                      height={kamen_riders.picture.formats.small.height}
-                      alt={kamen_riders.picture.name}
-                      className="object-fill w-full"
-                      loading="lazy"
-                    />
-                  </p>
+                  <Image
+                    src={
+                      "https://admin.herocartoontshirt.com" +
+                      kamen_riders.picture.formats.small.url
+                    }
+                    width={kamen_riders.picture.formats.small.width}
+                    height={kamen_riders.picture.formats.small.height}
+                    alt={kamen_riders.picture.name}
+                    className="object-fill w-full mx-auto"
+                    loading="lazy"
+                  />
                   <p className="text-center text-3xl font-bold">
                     {kamen_riders.name}
                   </p>
@@ -74,7 +72,7 @@ const Home = ({ items, items2, items3, error }) => {
                 key={sp_collections.id}
               >
                 <a>
-                  <p className="text-center">
+
                     <Image
                       src={
                         "https://admin.herocartoontshirt.com" +
@@ -83,10 +81,10 @@ const Home = ({ items, items2, items3, error }) => {
                       width={sp_collections.picture.formats.small.width}
                       height={sp_collections.picture.formats.small.height}
                       alt={sp_collections.picture.name}
-                      className="object-fill w-full"
+                      className="object-fill w-full mx-auto"
                       loading="lazy"
                     />
-                  </p>
+
                   <p className="text-center text-3xl font-bold">
                     {sp_collections.name}
                   </p>
@@ -119,7 +117,7 @@ const Home = ({ items, items2, items3, error }) => {
                 key={um_collections.id}
               >
                 <a>
-                  <p className="text-center">
+
                     <Image
                       src={
                         "https://admin.herocartoontshirt.com" +
@@ -128,10 +126,10 @@ const Home = ({ items, items2, items3, error }) => {
                       width={um_collections.picture.formats.small.width}
                       height={um_collections.picture.formats.small.height}
                       alt={um_collections.picture.name}
-                      className="object-fill w-full"
+                      className="object-fill w-full mx-auto"
                       loading="lazy"
                     />
-                  </p>
+
                   <p className="text-center text-3xl font-bold">
                     {um_collections.name}
                   </p>

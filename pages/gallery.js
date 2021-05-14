@@ -34,7 +34,7 @@ export default function Gallery({ items }) {
                     key={object.id}
                     className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 px-2 py-2 max-w-max"
                   >
-                    <Image
+                    <img
                       src={"https://admin.herocartoontshirt.com" + object.url}
                       width={object.width}
                       height={object.height}
