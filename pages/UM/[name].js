@@ -22,14 +22,14 @@ export default function SPCollections({ um_collections }) {
             <SRLWrapper>
               <a
                 href={
-                  "https://admin.herocartoontshirt.my.to" +
+                  "https://admin.herocartoontshirt.com" +
                   um_collections.picture.url
                 }
               >
                 <>
                   <img
                     src={
-                      "https://admin.herocartoontshirt.my.to" +
+                      "https://admin.herocartoontshirt.com" +
                       um_collections.picture.formats.small.url
                     }
                     width={um_collections.picture.formats.small.width}
