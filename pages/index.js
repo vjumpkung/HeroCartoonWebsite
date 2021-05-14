@@ -31,7 +31,7 @@ const Home = ({ items, items2, items3, error }) => {
                   <p className="text-center">
                     <img
                       src={
-                        "https://admin.herocartoontshirt.my.to" +
+                        "https://admin.herocartoontshirt.com" +
                         kamen_riders.picture.formats.small.url
                       }
                       width={kamen_riders.picture.formats.small.width}
@@ -76,7 +76,7 @@ const Home = ({ items, items2, items3, error }) => {
                   <p className="text-center">
                     <img
                       src={
-                        "https://admin.herocartoontshirt.my.to" +
+                        "https://admin.herocartoontshirt.com" +
                         sp_collections.picture.formats.small.url
                       }
                       width={sp_collections.picture.formats.small.width}
@@ -121,7 +121,7 @@ const Home = ({ items, items2, items3, error }) => {
                   <p className="text-center">
                     <img
                       src={
-                        "https://admin.herocartoontshirt.my.to" +
+                        "https://admin.herocartoontshirt.com" +
                         um_collections.picture.formats.small.url
                       }
                       width={um_collections.picture.formats.small.width}

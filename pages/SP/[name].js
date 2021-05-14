@@ -22,14 +22,14 @@ export default function SPCollections({ sp_collections }) {
             <SRLWrapper>
               <a
                 href={
-                  "https://admin.herocartoontshirt.my.to" +
+                  "https://admin.herocartoontshirt.com" +
                   sp_collections.picture.url
                 }
               >
                 <>
                   <img
                     src={
-                      "https://admin.herocartoontshirt.my.to" +
+                      "https://admin.herocartoontshirt.com" +
                       sp_collections.picture.formats.small.url
                     }
                     width={sp_collections.picture.formats.small.width}

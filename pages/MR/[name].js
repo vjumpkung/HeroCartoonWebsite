@@ -29,14 +29,14 @@ function MRCollections({ kamen_riders }) {
             <SRLWrapper>
               <a
                 href={
-                  "https://admin.herocartoontshirt.my.to" +
+                  "https://admin.herocartoontshirt.com" +
                   kamen_riders.picture.url
                 }
               >
                 <>
                   <img
                     src={
-                      "https://admin.herocartoontshirt.my.to" +
+                      "https://admin.herocartoontshirt.com" +
                       kamen_riders.picture.formats.small.url
                     }
                     width={kamen_riders.picture.formats.small.width}
