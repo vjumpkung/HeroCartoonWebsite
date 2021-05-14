@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import Layout from "../components/Layout";
-import Messenger from "../components/Messenger";
+import LazyLoadMessenger from "../components/LazyLoadMessenger"
 import NProgress from "nprogress";
 import Head from "next/head";
 import Router from "next/router";
@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps, route }) {
           content="https://herocartoontshirt.com/ogbanner2.jpg"
         />
       </Head>
-      <Messenger />
+      <LazyLoadMessenger />
       <Layout>
         <Component {...pageProps} key={route} />
       </Layout>
