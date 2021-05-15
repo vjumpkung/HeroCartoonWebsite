@@ -2,10 +2,11 @@ import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "./Link";
 const navigation = [
-  { name: "Home", href: "/", current: false },
-  { name: "Gallery", href: "/gallery", current: false },
-  { name: "Reviews", href: "/reviews", current: false },
-  { name: "About", href: "/about", current: false },
+  { name: "หน้าแรก", href: "/", current: false },
+  { name: "สินค้า", href: "/products", current: false }, 
+  { name: "รูปภาพ", href: "/gallery", current: false },
+  { name: "รีวิว", href: "/reviews", current: false },
+  { name: "เกี่ยวกับ", href: "/about", current: false },
 ];
 
 function classNames(...classes) {
