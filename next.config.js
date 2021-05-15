@@ -7,7 +7,7 @@ module.exports = {
   async headers() {
     return [
       {
-        source: '/:all*(svg|jpg|png|webp|gif)',
+        source: '/(.*).(jpe?g|png|ico|webp|svg|xml|ttf|woff2?)',
         locale: false,
         headers: [
           {

@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 import { gql, useQuery } from "@apollo/client";
 import client from "../apollo-client";
 const Home = ({ items, items2, items3, error }) => {
@@ -29,7 +28,7 @@ const Home = ({ items, items2, items3, error }) => {
                 key={kamen_riders.id}
               >
                 <a>
-                  <Image
+                  <img
                     src={
                       "https://admin.herocartoontshirt.com" +
                       kamen_riders.picture.formats.small.url
@@ -73,7 +72,7 @@ const Home = ({ items, items2, items3, error }) => {
               >
                 <a>
 
-                    <Image
+                    <img
                       src={
                         "https://admin.herocartoontshirt.com" +
                         sp_collections.picture.formats.small.url
@@ -118,7 +117,7 @@ const Home = ({ items, items2, items3, error }) => {
               >
                 <a>
 
-                    <Image
+                    <img
                       src={
                         "https://admin.herocartoontshirt.com" +
                         um_collections.picture.formats.small.url
