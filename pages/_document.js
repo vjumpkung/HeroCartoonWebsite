@@ -4,10 +4,6 @@ class MyDocument extends Document {
         return (
             <Html lang="th">
                 <Head>
-                    <link rel="dns-prefetch" href="https://admin.herocartoontshirt.com/" />
-                    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" as="style" />
-                    <link rel="preconnect" href="https://admin.herocartoontshirt.com/" />
-                    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
                     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
                     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
                     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />

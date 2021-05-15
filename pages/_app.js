@@ -17,18 +17,21 @@ function MyApp({ Component, pageProps, route }) {
   return (
     <>
       <Head>
+        <link rel="dns-prefetch" href="https://admin.herocartoontshirt.com/" />
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" as="style" />
+        <link rel="preconnect" href="https://admin.herocartoontshirt.com/" />
+        <link rel="preconnect" href="https://use.fontawesome.com/" />
+        <link rel="dns-prefetch" href="https://use.fontawesome.com/" />
+        <link rel="preload" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" as="style" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <link
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-          integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
-          crossOrigin="anonymous"
         />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
         />
-        <link rel="preconnect" href="https://use.fontawesome.com" />
-        <link rel="preconnect" href="https://kit.fontawesome.com" />
         <meta
           name="description"
           content="มาย้อนเวลาคิดถึงความสุขในวัยเด็กกับเสื้อยืดฮีโร่การ์ตูน
