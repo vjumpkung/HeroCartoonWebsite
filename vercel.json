@@ -1,0 +1,10 @@
+{
+    "headers": [{
+        "source": "/(.*)",
+        "headers": [{
+            "key": "Cache-Control",
+            "content-type":"image/*",
+            "value": "public, max-age=31536000, must-revalidate"
+        }]
+    }]
+}
