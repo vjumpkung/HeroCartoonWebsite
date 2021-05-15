@@ -2,11 +2,13 @@
 module.exports = {
   images: {
     domains: ["admin.herocartoontshirt.com"],
+    maxAge: 9999999999, // seconds
   },
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: '/:all*(svg|jpg|png|webp|gif)',
+        locale: false,
         headers: [
           {
             key: 'Cache-Control',
