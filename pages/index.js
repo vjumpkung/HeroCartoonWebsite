@@ -1,192 +1,207 @@
+import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import Head from "next/head";
 import Link from "next/link";
 import 'lazysizes'
 import { gql, useQuery } from "@apollo/client";
 import client from "../apollo-client";
-const Home = ({ items, items2, items3, error }) => {
-  if (error) {
-    return <div>An error occured: {error.message}</div>;
-  }
-  return (
-    <>
-      <Head>
-        <title>หน้าแรก - เสื้อยืด Hero Cartoon</title>
-      </Head>
-      <div className="md:container md:mx-auto my-5 px-5 sm:my-6 sm:px-6 md:my-6 md:px-6 lg:my-6 lg:px-6 xl:my-6 xl:px-6">
-        {/*MR Collection */}
-        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
-          Masked Rider Collections
-        </h2>
-        <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
-          {items.map((kamen_riders) => (
-            <div
-              key={kamen_riders.id}
-              className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
-            >
-              <Link
-                href="/MR/[name]"
-                as={`/MR/${kamen_riders.name}`}
-                key={kamen_riders.id}
-              >
-                <a>
-                  <img
-                    data-src={
-                      "https://admin.herocartoontshirt.com" +
-                      kamen_riders.picture.formats.small.url
+import { Fragment } from "react";
+import Banner from "../components/Banner"
+import Description from "../components/Description";
+export default function Home({ data1, data2, data3 }) {
+    return (
+        <>
+            <Head>
+                <title>หน้าแรก - เสื้อยืด Hero Cartoon</title>
+            </Head>
+            <Banner />
+            <Description />
+            <div className="bg-gradient-to-r from-green-400 to-blue-500 w-full h-1 mt-2"></div>
+            <div className="md:container md:mx-auto my-5 px-5 sm:my-6 sm:px-6 md:my-6 md:px-6 lg:my-6 lg:px-6 xl:my-6 xl:px-6">
+                <h2 className="md:text-6xl font-black text-center py-3 text-5xl">
+                    สินค้าล่าสุด
+                </h2>
+                <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
+                    {
+                        data1.map((item) => (
+                            <div
+                                key={item.id}
+                                className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/3 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
+                            >
+                                <Link
+                                    href="/products/[name]"
+                                    as={`/products/${item.name}`}
+                                    key={item.id}
+                                >
+                                    <a>
+                                        <img
+                                            data-src={
+                                                "https://admin.herocartoontshirt.com" +
+                                                item.picture.formats.small.url
+                                            }
+                                            width={item.picture.formats.small.width}
+                                            height={item.picture.formats.small.height}
+                                            alt={item.picture.name}
+                                            className="object-fill w-full mx-auto lazyload"
+                                        />
+                                        <p className="text-center text-3xl font-bold">
+                                            {item.name}
+                                        </p>
+                                        <p className="text-center text-xl">
+                                            {item.description}
+                                        </p>
+                                        <p className="text-center text-sm text-gray-600 font-bold mb-3">รายละเอียดสินค้า</p>
+                                    </a>
+                                </Link>
+                            </div>
+                        ))
                     }
-                    width={kamen_riders.picture.formats.small.width}
-                    height={kamen_riders.picture.formats.small.height}
-                    alt={kamen_riders.picture.name}
-                    className="object-fill w-full mx-auto lazyload"
-                  />
-                  <p className="text-center text-3xl font-bold">
-                    {kamen_riders.name}
-                  </p>
-                  <p className="text-center text-xl">
-                    {kamen_riders.description}
-                  </p>
-                  <p className="text-center text-sm text-gray-400 mb-3">
-                    ภาพตัวอย่างสินค้าใช้ในการโฆษณาเท่านั้น
-                  </p>
-                </a>
-              </Link>
+                </div>
+                <Link href="/products">
+                    <a>
+                        <p className="text-center">
+                            <button className="transition delay-75 duration-300 ease-in-out bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg">
+                                <p className="text-center text-2xl">ดูสินค้าทั้งหมด</p>
+                            </button>
+                        </p>
+                    </a>
+                </Link>
             </div>
-          ))}
-        </div>
-        {/*SP Collection */}
-
-        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
-          Special Collections
-        </h2>
-
-        <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
-          {items2.map((sp_collections) => (
-            <div
-              key={sp_collections.id}
-              className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
-            >
-              <Link
-                href="/SP/[name]"
-                as={`/SP/${sp_collections.name}`}
-                key={sp_collections.id}
-              >
-                <a>
-
-                  <img
-                    data-src={
-                      "https://admin.herocartoontshirt.com" +
-                      sp_collections.picture.formats.small.url
-                    }
-                    width={sp_collections.picture.formats.small.width}
-                    height={sp_collections.picture.formats.small.height}
-                    alt={sp_collections.picture.name}
-                    className="object-fill w-full mx-auto lazyload"
-                  />
-
-                  <p className="text-center text-3xl font-bold">
-                    {sp_collections.name}
-                  </p>
-                  <p className="text-center text-xl">
-                    {sp_collections.description}
-                  </p>
-                  <p className="text-center text-sm text-gray-400 mb-3">
-                    ภาพตัวอย่างสินค้าใช้ในการโฆษณาเท่านั้น
-                  </p>
-                </a>
-              </Link>
+            <div className="bg-gradient-to-r from-green-400 to-blue-500 w-full h-1 mb-2"></div>
+            <div className="md:container md:mx-auto my-5 px-5 sm:my-6 sm:px-6 md:my-6 md:px-6 lg:my-6 lg:px-6 xl:my-6 xl:px-6">
+                <h1 className=" text-3xl lg:text-5xl text-center py-3 font-black">
+                    รีวิวจากลูกค้า
+                </h1>
+                <SimpleReactLightbox>
+                    <SRLWrapper>
+                        <div className="flex flex-wrap justify-center">
+                            {data2.map((item) => (
+                                <Fragment key={item.id}>
+                                    {item.picture.slice(-4).map((object) => (
+                                        <div
+                                            key={object.id}
+                                            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 px-2 py-2 max-w-max"
+                                        >
+                                            <img
+                                                src={"https://admin.herocartoontshirt.com" + object.url}
+                                                width={object.width}
+                                                height={object.height}
+                                                className="mx-auto square transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+                                                loading="lazy"
+                                                alt={object.name}
+                                            />
+                                        </div>
+                                    ))}
+                                </Fragment>
+                            ))}
+                        </div>
+                    </SRLWrapper>
+                </SimpleReactLightbox>
+                <Link href="/reviews">
+                    <a>
+                        <p className="text-center pt-2">
+                            <button className="transition delay-75 duration-300 ease-in-out bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg">
+                                <p className="text-center text-2xl">ดูรีวิวทั้งหมด</p>
+                            </button>
+                        </p>
+                    </a>
+                </Link>
             </div>
-          ))}
-        </div>
-        {/*UM Collection */}
-
-        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
-          Ultraman Collections
-        </h2>
-
-        <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
-          {items3.map((um_collections) => (
-            <div
-              key={um_collections.id}
-              className="transition delay-75 duration-300 ease-in-out my-5 px-5 pt-3 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
-            >
-              <Link
-                href="/UM/[name]"
-                as={`/UM/${um_collections.name}`}
-                key={um_collections.id}
-              >
-                <a>
-
-                  <img
-                    data-src={
-                      "https://admin.herocartoontshirt.com" +
-                      um_collections.picture.formats.small.url
-                    }
-                    width={um_collections.picture.formats.small.width}
-                    height={um_collections.picture.formats.small.height}
-                    alt={um_collections.picture.name}
-                    className="object-fill w-full mx-auto lazyload"
-                  />
-
-                  <p className="text-center text-3xl font-bold">
-                    {um_collections.name}
-                  </p>
-                  <p className="text-center text-xl">
-                    {um_collections.description}
-                  </p>
-                  <p className="text-center text-sm text-gray-400 mb-3">
-                    ภาพตัวอย่างสินค้าใช้ในการโฆษณาเท่านั้น
-                  </p>
-                </a>
-              </Link>
+            <div className="bg-gradient-to-r from-green-400 to-blue-500 w-full h-1 mb-2"></div>
+            <div className="md:container md:mx-auto my-5 px-5 sm:my-6 sm:px-6 md:my-6 md:px-6 lg:my-6 lg:px-6 xl:my-6 xl:px-6">
+                <h1 className=" text-3xl lg:text-5xl text-center py-3 font-black">
+                    Gallery
+                </h1>
+                <SimpleReactLightbox>
+                    <SRLWrapper>
+                        <div className="flex flex-wrap justify-center">
+                            {data3.slice(-1).map((item) => (
+                                <>
+                                    {item.picture.slice(-4).map((object) => (
+                                        <div
+                                            key={object.id}
+                                            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 px-2 py-2 max-w-max"
+                                        >
+                                            <img
+                                                src={"https://admin.herocartoontshirt.com" + object.url}
+                                                width={object.width}
+                                                height={object.height}
+                                                className="mx-auto square transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+                                                loading="lazy"
+                                                alt={object.name}
+                                            />
+                                        </div>
+                                    ))}
+                                </>
+                            ))}
+                        </div>
+                    </SRLWrapper>
+                </SimpleReactLightbox>
+                <Link href="/gallery">
+                    <a>
+                        <p className="text-center pt-2">
+                            <button className="transition delay-75 duration-300 ease-in-out bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg">
+                                <p className="text-center text-2xl">ดูรูปภาพทั้งหมด</p>
+                            </button>
+                        </p>
+                    </a>
+                </Link>
             </div>
-          ))}
-        </div>
-      </div>
-    </>
-  );
-};
-export async function getStaticProps(context) {
-  try {
+        </>
+    )
+}
+export async function getServerSideProps() {
+    //fetch recent product
     const { data } = await client.query({
-      query: gql`
+        query: gql`
         query {
-          kamenRiders {
-            id
-            name
-            description
-            picture {
-              formats
+            kamenRiders(limit: 2, sort: "id:DESC") {
+              id
+              name
+              picture {
+                formats
+              }
             }
-          }
-          spCollections {
-            id
-            name
-            description
-            picture {
-              formats
+            spCollections(limit: 2, sort: "id:DESC") {
+              id
+              name
+              picture {
+                formats
+              }
             }
-          }
-          umCollections {
-            id
-            name
-            description
-            picture {
-              formats
+            umCollections(limit: 2, sort: "id:DESC") {
+              id
+              name
+              picture {
+                formats
+              }
             }
-          }
-        }
+            galleries {
+                picture {
+                  name
+                  id
+                  url
+                  width
+                  height
+                }
+              }
+            reviews {
+              id
+              picture {
+                url
+              }
+            }
+          }          
       `,
     });
+    const items1 = data.kamenRiders, items2 = data.spCollections, items3 = data.umCollections
+    const mixProducts = [...items1, ...items2, ...items3]
+    const mixReviews = data.reviews
+    const mixGalleries = data.galleries
     return {
-      props: {
-        items: data.kamenRiders,
-        items2: data.spCollections,
-        items3: data.umCollections,
-      },
-      revalidate: 1, // In seconds
+        props: {
+            data1: mixProducts,
+            data2: mixReviews,
+            data3: mixGalleries
+        },
     };
-  } catch (error) {
-    return { error };
-  }
 }
-export default Home;
