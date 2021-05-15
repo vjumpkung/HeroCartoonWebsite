@@ -16,7 +16,7 @@ module.exports = {
         ],
       },
       {
-        source: '/_next/image:all*(svg|jpg|png|webp)',
+        source: '/_next/image(.*)',
         locale: false,
         headers: [
           {
