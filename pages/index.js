@@ -149,7 +149,7 @@ export default function Home({ data1, data2, data3 }) {
         </>
     )
 }
-export async function getServerSideProps() {
+export async function getStaticProps() {
     //fetch recent product
     const { data } = await client.query({
         query: gql`
@@ -203,5 +203,6 @@ export async function getServerSideProps() {
             data2: mixReviews,
             data3: mixGalleries
         },
+        revalidate: 1, // In seconds
     };
 }
