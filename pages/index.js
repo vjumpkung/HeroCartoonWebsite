@@ -3,7 +3,6 @@ import Link from "next/link";
 import 'lazysizes'
 import { gql, useQuery } from "@apollo/client";
 import client from "../apollo-client";
-const placeholder = "/lqip.gif"
 const Home = ({ items, items2, items3, error }) => {
   if (error) {
     return <div>An error occured: {error.message}</div>;
@@ -12,7 +11,6 @@ const Home = ({ items, items2, items3, error }) => {
     <>
       <Head>
         <title>หน้าแรก - เสื้อยืด Hero Cartoon</title>
-        <link rel="preload" as="image" href="/lqip.gif"/>
       </Head>
       <div className="md:container md:mx-auto my-5 px-5 sm:my-6 sm:px-6 md:my-6 md:px-6 lg:my-6 lg:px-6 xl:my-6 xl:px-6">
         {/*MR Collection */}
@@ -32,7 +30,6 @@ const Home = ({ items, items2, items3, error }) => {
               >
                 <a>
                   <img
-                    src={placeholder}
                     data-src={
                       "https://admin.herocartoontshirt.com" +
                       kamen_riders.picture.formats.small.url
@@ -76,7 +73,6 @@ const Home = ({ items, items2, items3, error }) => {
                 <a>
 
                   <img
-                    src={placeholder}
                     data-src={
                       "https://admin.herocartoontshirt.com" +
                       sp_collections.picture.formats.small.url
@@ -121,7 +117,6 @@ const Home = ({ items, items2, items3, error }) => {
                 <a>
 
                   <img
-                    src={placeholder}
                     data-src={
                       "https://admin.herocartoontshirt.com" +
                       um_collections.picture.formats.small.url
