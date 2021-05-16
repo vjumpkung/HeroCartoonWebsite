@@ -2,7 +2,6 @@
 module.exports = {
   images: {
     domains: ["admin.herocartoontshirt.com"],
-    maxAge: 9999999999, // seconds
   },
   async headers() {
     return [
@@ -12,7 +11,7 @@ module.exports = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=9999999999, must-revalidate',
+            value: 'public, max-age=0, must-revalidate',
           }
         ],
       },
