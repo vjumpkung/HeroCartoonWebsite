@@ -1,11 +1,11 @@
 import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import Head from "next/head";
 import Link from "next/link";
-import 'lazysizes'
+import "lazysizes";
 import { gql, useQuery } from "@apollo/client";
 import client from "../apollo-client";
 import { Fragment } from "react";
-import Banner from "../components/Banner"
+import Banner from "../components/Banner";
 import Description from "../components/Description";
 export default function Home({ data1, data2, data3 }) {
     return (
@@ -15,46 +15,41 @@ export default function Home({ data1, data2, data3 }) {
             </Head>
             <Banner />
             <Description />
-            <div className="bg-gradient-to-r from-green-400 to-blue-500 w-full h-1 mt-2"></div>
             <div className="md:container md:mx-auto my-5 px-5 sm:my-6 sm:px-6 md:my-6 md:px-6 lg:my-6 lg:px-6 xl:my-6 xl:px-6">
                 <h2 className="md:text-6xl font-black text-center py-3 text-5xl">
                     สินค้าล่าสุด
                 </h2>
                 <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
-                    {
-                        data1.map((item) => (
-                            <div
+                    {data1.map((item) => (
+                        <div
+                            key={item.id}
+                            className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/3 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
+                        >
+                            <Link
+                                href="/products/[name]"
+                                as={`/products/${item.name}`}
                                 key={item.id}
-                                className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/3 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
                             >
-                                <Link
-                                    href="/products/[name]"
-                                    as={`/products/${item.name}`}
-                                    key={item.id}
-                                >
-                                    <a>
-                                        <img
-                                            data-src={
-                                                "https://admin.herocartoontshirt.com" +
-                                                item.picture.formats.small.url
-                                            }
-                                            width={item.picture.formats.small.width}
-                                            height={item.picture.formats.small.height}
-                                            alt={item.picture.name}
-                                            className="object-fill w-full mx-auto lazyload"
-                                        />
-                                        <p className="text-center text-3xl font-bold">
-                                            {item.name}
-                                        </p>
-                                        <p className="text-center text-xl">
-                                            {item.description}
-                                        </p>
-                                        <p className="text-center text-sm text-gray-600 font-bold mb-3">รายละเอียดสินค้า</p>
-                                    </a>
-                                </Link>
-                            </div>
-                        ))
-                    }
+                                <a>
+                                    <img
+                                        data-src={
+                                            "https://admin.herocartoontshirt.com" +
+                                            item.picture.formats.small.url
+                                        }
+                                        width={item.picture.formats.small.width}
+                                        height={item.picture.formats.small.height}
+                                        alt={item.picture.name}
+                                        className="object-fill w-full mx-auto lazyload"
+                                    />
+                                    <p className="text-center text-3xl font-bold">{item.name}</p>
+                                    <p className="text-center text-xl">{item.description}</p>
+                                    <p className="text-center text-sm text-gray-600 font-bold mb-3">
+                                        รายละเอียดสินค้า
+                  </p>
+                                </a>
+                            </Link>
+                        </div>
+                    ))}
                 </div>
                 <Link href="/products">
                     <a>
@@ -73,7 +68,7 @@ export default function Home({ data1, data2, data3 }) {
                 </h1>
                 <SimpleReactLightbox>
                     <SRLWrapper>
-                        <div className="flex flex-wrap justify-center">
+                        <div className="flex flex-wrap-reverse justify-center">
                             {data2.map((item) => (
                                 <Fragment key={item.id}>
                                     {item.picture.slice(-4).map((object) => (
@@ -113,7 +108,7 @@ export default function Home({ data1, data2, data3 }) {
                 </h1>
                 <SimpleReactLightbox>
                     <SRLWrapper>
-                        <div className="flex flex-wrap justify-center">
+                        <div className="flex flex-wrap-reverse justify-center">
                             {data3.slice(-1).map((item) => (
                                 <>
                                     {item.picture.slice(-4).map((object) => (
@@ -147,61 +142,68 @@ export default function Home({ data1, data2, data3 }) {
                 </Link>
             </div>
         </>
-    )
+    );
 }
 export async function getStaticProps() {
     //fetch recent product
     const { data } = await client.query({
         query: gql`
-        query {
-            kamenRiders(limit: 2, sort: "id:DESC") {
-              id
-              name
-              picture {
-                formats
-              }
-            }
-            spCollections(limit: 2, sort: "id:DESC") {
-              id
-              name
-              picture {
-                formats
-              }
-            }
-            umCollections(limit: 2, sort: "id:DESC") {
-              id
-              name
-              picture {
-                formats
-              }
-            }
-            galleries {
-                picture {
-                  name
-                  id
-                  url
-                  width
-                  height
-                }
-              }
-            reviews {
-              id
-              picture {
-                url
-              }
-            }
-          }          
-      `,
+      query {
+        kamenRiders(limit: 2, sort: "id:DESC") {
+          id
+          name
+          picture {
+            formats
+          }
+        }
+        spCollections(limit: 2, sort: "id:DESC") {
+          id
+          name
+          picture {
+            formats
+          }
+        }
+        umCollections(limit: 2, sort: "id:DESC") {
+          id
+          name
+          picture {
+            formats
+          }
+        }
+        galleries {
+          id
+          picture {
+            name
+            id
+            url
+            width
+            height
+          }
+        }
+        reviews {
+          id
+          picture {
+            name
+            id
+            width
+            height
+            url
+          }
+        }
+      }
+    `,
     });
-    const items1 = data.kamenRiders, items2 = data.spCollections, items3 = data.umCollections
-    const mixProducts = [...items1, ...items2, ...items3]
-    const mixReviews = data.reviews
-    const mixGalleries = data.galleries
+    const   items1 = data.kamenRiders,
+            items2 = data.spCollections,
+            items3 = data.umCollections;
+    const mixProducts = [...items1, ...items2, ...items3];
+    const mixReviews = data.reviews;
+    const mixGalleries = data.galleries;
     return {
         props: {
             data1: mixProducts,
             data2: mixReviews,
-            data3: mixGalleries
+            data3: mixGalleries,
         },
         revalidate: 1, // In seconds
     };
