@@ -67,12 +67,12 @@ export default function Footer() {
               </a>
               <a href="https://line.me/R/ti/p/%40004ktxqi">
                 <p className="text-xl my-2 text-center text-green-500">
-                  <span class="icon-line"></span> : @004ktxqi
+                  <span className="icon-line"></span> : @004ktxqi
                 </p>
               </a>
               <a href="https://herocartoontshirt.com">
                 <p className="text-xl my-2 text-center text-red-500">
-                  <span class="icon-earth"></span> : herocartoontshirt.com
+                  <span className="icon-earth"></span> : herocartoontshirt.com
                 </p>
               </a>
             </div>

@@ -33,12 +33,12 @@ const About = () => {
           </a>
           <a href="https://line.me/R/ti/p/%40004ktxqi">
             <p className="text-xl my-2 text-center ">
-              <span class="icon-line"></span> : @004ktxqi
+              <span className="icon-line"></span> : @004ktxqi
             </p>
           </a>
           <a href="https://herocartoontshirt.my.to">
             <p className="text-xl my-2 text-center ">
-              <span class="icon-earth"></span> : herocartoontshirt.my.to
+              <span className="icon-earth"></span> : herocartoontshirt.my.to
             </p>
           </a>
         </div>
