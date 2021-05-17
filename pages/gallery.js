@@ -4,7 +4,6 @@ import { gql, useQuery } from "@apollo/client";
 import client from "../apollo-client";
 import React, { Fragment } from "react";
 import Head from "next/head";
-import Image from "next/image";
 
 export default function Gallery({ items }) {
   const router = useRouter();

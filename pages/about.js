@@ -23,22 +23,22 @@ const About = () => {
           </div>
           <a href="tel:0948541177">
             <p className="text-xl my-2 text-center">
-              <i className="fas fa-phone-alt"></i> : 0948541177
+              <span className="icon-phone"></span> : 0948541177
             </p>
           </a>
           <a href="https://www.facebook.com/herocartoontshirt">
             <p className="text-xl my-2 text-center ">
-              <i className="fab fa-facebook"></i> : เสื้อยืด Hero Cartoon
+              <span className="icon-facebook2"></span> : เสื้อยืด Hero Cartoon
             </p>
           </a>
           <a href="https://line.me/R/ti/p/%40004ktxqi">
             <p className="text-xl my-2 text-center ">
-              <i className="fab fa-line"></i> : @004ktxqi
+              <span class="icon-line"></span> : @004ktxqi
             </p>
           </a>
           <a href="https://herocartoontshirt.my.to">
             <p className="text-xl my-2 text-center ">
-              <i className="fas fa-globe"></i> : herocartoontshirt.my.to
+              <span class="icon-earth"></span> : herocartoontshirt.my.to
             </p>
           </a>
         </div>

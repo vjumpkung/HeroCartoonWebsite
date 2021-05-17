@@ -26,9 +26,9 @@ const Home = ({ items, items2, items3, error }) => {
               <Link
                 href="/products/[name]"
                 as={`/products/${kamen_riders.name}`}
-                key={kamen_riders.id}
+                
               >
-                <a>
+                <a key={kamen_riders.id}>
                   <img
                     data-src={
                       "https://admin.herocartoontshirt.com" +
@@ -68,9 +68,9 @@ const Home = ({ items, items2, items3, error }) => {
               <Link
                 href="/products/[name]"
                 as={`/products/${sp_collections.name}`}
-                key={sp_collections.id}
+                
               >
-                <a>
+                <a key={sp_collections.id}>
 
                   <img
                     data-src={
@@ -112,9 +112,9 @@ const Home = ({ items, items2, items3, error }) => {
               <Link
                 href="/products/[name]"
                 as={`/products/${um_collections.name}`}
-                key={um_collections.id}
+                
               >
-                <a>
+                <a key={um_collections.id}>
 
                   <img
                     data-src={
