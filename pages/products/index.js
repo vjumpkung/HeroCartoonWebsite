@@ -1,8 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 import 'lazysizes'
-import { gql, useQuery } from "@apollo/client";
-import client from "../../apollo-client";
 import axios from "axios";
 const Home = ({ items, items2, items3, error }) => {
   if (error) {
