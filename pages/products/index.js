@@ -145,7 +145,7 @@ const Home = ({ items, items2, items3, error }) => {
     </>
   );
 };
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   try {
     const { data } = await client.query({
       query: gql`

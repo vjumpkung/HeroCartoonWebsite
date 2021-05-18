@@ -51,7 +51,7 @@ export default function Review({ items }) {
     </div>
   );
 }
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data } = await client.query({
     query: gql`
       query {
@@ -71,6 +71,5 @@ export async function getStaticProps() {
     props: {
       items: data.reviews,
     },
-    revalidate: 1, // In seconds
   };
 }
