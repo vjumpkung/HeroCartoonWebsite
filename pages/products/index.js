@@ -183,7 +183,6 @@ export async function getServerSideProps(context) {
         items2: data.spCollections,
         items3: data.umCollections,
       },
-      revalidate: 1, // In seconds
     };
   } catch (error) {
     return { error };
