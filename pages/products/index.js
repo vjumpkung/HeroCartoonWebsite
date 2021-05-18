@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import 'lazysizes'
-import axios from "axios";
+import { gql, useQuery } from "@apollo/client";
+import client from "../../apollo-client";
 const Home = ({ items, items2, items3, error }) => {
   if (error) {
     return <div>An error occured: {error.message}</div>;
@@ -146,17 +147,41 @@ const Home = ({ items, items2, items3, error }) => {
 };
 export async function getStaticProps(context) {
   try {
-    const res1 = await axios.get("https://admin.herocartoontshirt.com/kamen-riders");
-    const res2 = await axios.get("https://admin.herocartoontshirt.com/sp-collections");
-    const res3 = await axios.get("https://admin.herocartoontshirt.com/um-collections");
-    const items = res1.data
-    const items2 = res2.data
-    const items3 = res3.data
+    const { data } = await client.query({
+      query: gql`
+        query {
+          kamenRiders {
+            id
+            name
+            description
+            picture {
+              formats
+            }
+          }
+          spCollections {
+            id
+            name
+            description
+            picture {
+              formats
+            }
+          }
+          umCollections {
+            id
+            name
+            description
+            picture {
+              formats
+            }
+          }
+        }
+      `,
+    });
     return {
       props: {
-        items: items,
-        items2: items2,
-        items3: items3,
+        items: data.kamenRiders,
+        items2: data.spCollections,
+        items3: data.umCollections,
       },
       revalidate: 1
     };

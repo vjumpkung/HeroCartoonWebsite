@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import SizeChart from "../../components/SizeChart";
 import Details from "../../components/Details";
 import Head from "next/head";
-import axios from "axios";
 
 function MRSPUMCollections({ items }) {
     const router = useRouter();
@@ -69,10 +68,38 @@ function MRSPUMCollections({ items }) {
 
 export const getStaticProps = async ({ params }) => {
     //data fetching
-    const res1 = await axios.get("https://admin.herocartoontshirt.com/kamen-riders");
-    const res2 = await axios.get("https://admin.herocartoontshirt.com/sp-collections");
-    const res3 = await axios.get("https://admin.herocartoontshirt.com/um-collections");
-    const MR = res1.data , SP = res2.data , UM = res3.data;
+    const { data } = await client.query({
+        query: gql`
+    query {
+        kamenRiders{
+          id
+          name
+          picture {
+            url
+            formats
+          }
+        }
+        spCollections{
+          id
+          name
+          picture {
+            url
+            formats
+          }
+        }
+        umCollections{
+          id
+          name
+          picture {
+            url
+            formats
+          }
+        }
+    }
+    `,
+    });
+    //parsing
+    const MR = data.kamenRiders , SP = data.spCollections , UM = data.umCollections;
     const allProducts = [...MR,...SP,...UM]
     const products_data = allProducts.filter((p) => p.name.toString() === params.name);
     return {
@@ -85,10 +112,34 @@ export const getStaticProps = async ({ params }) => {
 
 export const getStaticPaths = async () => {
     //data fetching
-    const res1 = await axios.get("https://admin.herocartoontshirt.com/kamen-riders");
-    const res2 = await axios.get("https://admin.herocartoontshirt.com/sp-collections")
-    const res3 = await axios.get("https://admin.herocartoontshirt.com/um-collections")
-    const MR = res1.data , SP = res2.data , UM = res3.data;
+    const { data } = await client.query({
+        query: gql`
+        query {
+            kamenRiders{
+              id
+              name
+              picture {
+                formats
+              }
+            }
+            spCollections{
+              id
+              name
+              picture {
+                formats
+              }
+            }
+            umCollections{
+              id
+              name
+              picture {
+                formats
+              }
+            }
+        }
+    `,
+    });
+    const MR = data.kamenRiders , SP = data.spCollections , UM = data.umCollections;
     const allProducts = [...MR,...SP,...UM]
     const paths = allProducts.map((allProducts_paths) => ({
         params: { name: allProducts_paths.name.toString() },
