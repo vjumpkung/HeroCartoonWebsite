@@ -51,7 +51,7 @@ export default function Gallery({ items }) {
     </div>
   );
 }
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
       query {
@@ -71,5 +71,6 @@ export async function getServerSideProps() {
     props: {
       items: data.galleries,
     },
+    revalidate: 1
   };
 }
