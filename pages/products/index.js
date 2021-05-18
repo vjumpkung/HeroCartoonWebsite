@@ -10,7 +10,7 @@ const Home = ({ items, items2, items3, error }) => {
   return (
     <>
       <Head>
-        <title>หน้าแรก - เสื้อยืด Hero Cartoon</title>
+        <title>Products - เสื้อยืด Hero Cartoon</title>
       </Head>
       <div className="md:container md:mx-auto my-5 px-5 sm:my-6 sm:px-6 md:my-6 md:px-6 lg:my-6 lg:px-6 xl:my-6 xl:px-6">
         {/*MR Collection */}
@@ -145,7 +145,7 @@ const Home = ({ items, items2, items3, error }) => {
     </>
   );
 };
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   try {
     const { data } = await client.query({
       query: gql`
@@ -183,6 +183,7 @@ export async function getServerSideProps(context) {
         items2: data.spCollections,
         items3: data.umCollections,
       },
+      revalidate: 1, // In seconds
     };
   } catch (error) {
     return { error };
