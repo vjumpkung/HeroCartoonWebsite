@@ -44,7 +44,7 @@ const Header = () => {
                     className="hidden lg:block h-8 w-auto"
                     src="/logo.png"
                     alt="Hero Cartoon Tshirt"
-                    width="199.42"
+                    width="199"
                     height="32"
                   />
                 </div>
@@ -54,6 +54,7 @@ const Header = () => {
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <Link
+                        prefetch={false}
                         href={item.href}
                         as={item.href}
                         key={item.name}
@@ -83,6 +84,7 @@ const Header = () => {
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <Link
+                  prefetch={false}
                   href={item.href}
                   as={item.href}
                   key={item.name}

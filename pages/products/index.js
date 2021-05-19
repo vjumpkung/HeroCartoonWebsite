@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
 import 'lazysizes'
-import { gql, useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
 import client from "../../apollo-client";
+import { imgLink, placeholder1 } from "../../lib/constant";
 const Home = ({ items, items2, items3, error }) => {
   if (error) {
     return <div>An error occured: {error.message}</div>;
@@ -26,16 +27,17 @@ const Home = ({ items, items2, items3, error }) => {
               <Link
                 href="/products/[name]"
                 as={`/products/${kamen_riders.name}`}
-                
+                prefetch={false}
               >
                 <a key={kamen_riders.id}>
                   <img
+                    src={placeholder1}
                     data-src={
                       "https://admin.herocartoontshirt.com" +
                       kamen_riders.picture.formats.small.url
                     }
-                    width={kamen_riders.picture.formats.small.width}
-                    height={kamen_riders.picture.formats.small.height}
+                    width="460"
+                    height="434.59"
                     alt={kamen_riders.picture.name}
                     className="object-fill w-full mx-auto lazyload"
                   />
@@ -68,17 +70,18 @@ const Home = ({ items, items2, items3, error }) => {
               <Link
                 href="/products/[name]"
                 as={`/products/${sp_collections.name}`}
-                
+                prefetch={false}
               >
                 <a key={sp_collections.id}>
 
                   <img
+                    src={placeholder1}
                     data-src={
                       "https://admin.herocartoontshirt.com" +
                       sp_collections.picture.formats.small.url
                     }
-                    width={sp_collections.picture.formats.small.width}
-                    height={sp_collections.picture.formats.small.height}
+                    width="460"
+                    height="434.59"
                     alt={sp_collections.picture.name}
                     className="object-fill w-full mx-auto lazyload"
                   />
@@ -112,17 +115,19 @@ const Home = ({ items, items2, items3, error }) => {
               <Link
                 href="/products/[name]"
                 as={`/products/${um_collections.name}`}
+                prefetch={false}
                 
               >
                 <a key={um_collections.id}>
 
                   <img
+                    src={placeholder1}
                     data-src={
-                      "https://admin.herocartoontshirt.com" +
+                      imgLink +
                       um_collections.picture.formats.small.url
                     }
-                    width={um_collections.picture.formats.small.width}
-                    height={um_collections.picture.formats.small.height}
+                    width="460"
+                    height="434.59"
                     alt={um_collections.picture.name}
                     className="object-fill w-full mx-auto lazyload"
                   />

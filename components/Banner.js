@@ -1,7 +1,7 @@
 export default function Banner() {
     return (
         <>
-            <div className="">
+            <div>
                 <picture>
                     <source srcSet="/image/bannerwebsite.webp" type="image/webp"/>
                     <source srcSet="/image/bannerwebsite.png" type="image/png"/>

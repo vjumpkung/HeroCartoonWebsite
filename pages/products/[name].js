@@ -1,10 +1,11 @@
 import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
-import { gql, useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
 import client from "../../apollo-client";
 import { useRouter } from "next/router";
 import SizeChart from "../../components/SizeChart";
 import Details from "../../components/Details";
 import Head from "next/head";
+import { imgLink } from "../../lib/constant";
 
 function MRSPUMCollections({ items }) {
     const router = useRouter();
@@ -29,14 +30,14 @@ function MRSPUMCollections({ items }) {
                         <SRLWrapper>
                             <a
                                 href={
-                                    "https://admin.herocartoontshirt.com" +
+                                    imgLink +
                                     items.picture.url
                                 }
                             >
                                 <>
                                     <img
                                         src={
-                                            "https://admin.herocartoontshirt.com" +
+                                            imgLink +
                                             items.picture.formats.small.url
                                         }
                                         width={items.picture.formats.small.width}

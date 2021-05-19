@@ -40,7 +40,7 @@ export default function Footer() {
                 <div className="m-auto">
                   <p className="text-justify my-1 text-lg">
                     {navigation.map((item) => (
-                      <Link href={item.href}>
+                      <Link href={item.href} prefetch={false}>
                         <a>
                           <span>• {item.name}</span>
                           <br />

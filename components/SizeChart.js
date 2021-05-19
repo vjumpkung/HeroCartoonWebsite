@@ -1,5 +1,5 @@
-import BackButton from "./BackButton";
 import { SRLWrapper } from "simple-react-lightbox";
+import BackButton from "./BackButton"
 const SizeChart = () => {
   return (
     <div className="md:flex md:flex-wrap sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 max-w-3xl">
@@ -27,4 +27,4 @@ const SizeChart = () => {
     </div>
   );
 };
-export default SizeChart
+export default SizeChart;

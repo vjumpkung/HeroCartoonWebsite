@@ -38,7 +38,7 @@ const About = () => {
           </a>
           <a href="https://herocartoontshirt.my.to">
             <p className="text-xl my-2 text-center ">
-              <span className="icon-earth"></span> : herocartoontshirt.my.to
+              <span className="icon-earth"></span> : www.herocartoontshirt.com
             </p>
           </a>
         </div>

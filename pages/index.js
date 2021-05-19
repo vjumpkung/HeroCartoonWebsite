@@ -2,10 +2,11 @@ import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import Head from "next/head";
 import Link from "next/link";
 import "lazysizes";
-import { gql, useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
 import client from "../apollo-client";
 import { Fragment } from "react";
 import dynamic from "next/dynamic";
+import {squareplaceholder,placeholder1,imgLink} from "../lib/constant"
 const Banner = dynamic(() => import("../components/Banner"));
 const Description = dynamic(() => import("../components/Description"));
 export default function Home({ data1, data2, data3 }) {
@@ -30,15 +31,17 @@ export default function Home({ data1, data2, data3 }) {
                 href="/products/[name]"
                 as={`/products/${item.name}`}
                 key={item.id}
+                prefetch={false}
               >
                 <a>
                   <img
+                    src={placeholder1}
                     data-src={
-                      "https://admin.herocartoontshirt.com" +
+                      imgLink +
                       item.picture.formats.small.url
                     }
-                    width={item.picture.formats.small.width}
-                    height={item.picture.formats.small.height}
+                    width="464"
+                    height="430.59"
                     alt={item.picture.name}
                     className="object-fill w-full mx-auto lazyload"
                   />
@@ -78,8 +81,9 @@ export default function Home({ data1, data2, data3 }) {
                       className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 px-2 py-2 max-w-max"
                     >
                       <img
+                        src={squareplaceholder}
                         data-src={
-                          "https://admin.herocartoontshirt.com" + object.url
+                          imgLink + object.url
                         }
                         width={object.width}
                         height={object.height}
@@ -93,7 +97,7 @@ export default function Home({ data1, data2, data3 }) {
             </div>
           </SRLWrapper>
         </SimpleReactLightbox>
-        <Link href="/reviews">
+        <Link href="/reviews" prefetch={false}>
           <a>
             <p className="text-center pt-2">
               <button className="transition delay-75 duration-300 ease-in-out bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg">
@@ -119,8 +123,9 @@ export default function Home({ data1, data2, data3 }) {
                       className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 px-2 py-2 max-w-max"
                     >
                       <img
+                        src={squareplaceholder}
                         data-src={
-                          "https://admin.herocartoontshirt.com" + object.url
+                          imgLink + object.url
                         }
                         width={object.width}
                         height={object.height}
@@ -134,7 +139,7 @@ export default function Home({ data1, data2, data3 }) {
             </div>
           </SRLWrapper>
         </SimpleReactLightbox>
-        <Link href="/gallery">
+        <Link href="/gallery" prefetch={false}>
           <a>
             <p className="text-center pt-2">
               <button className="transition delay-75 duration-300 ease-in-out bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg">
