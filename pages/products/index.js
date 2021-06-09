@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
-import 'lazysizes'
+import "lazysizes";
 import { gql } from "@apollo/client";
 import client from "../../apollo-client";
 import { imgLink, placeholder1 } from "../../lib/constant";
-const Home = ({ items, items2, items3, error }) => {
+const Home = ({ items, items2, items3, items4, error }) => {
   if (error) {
     return <div>An error occured: {error.message}</div>;
   }
@@ -73,7 +73,6 @@ const Home = ({ items, items2, items3, error }) => {
                 prefetch={false}
               >
                 <a key={sp_collections.id}>
-
                   <img
                     src={placeholder1}
                     data-src={
@@ -116,15 +115,12 @@ const Home = ({ items, items2, items3, error }) => {
                 href="/products/[name]"
                 as={`/products/${um_collections.name}`}
                 prefetch={false}
-                
               >
                 <a key={um_collections.id}>
-
                   <img
                     src={placeholder1}
                     data-src={
-                      imgLink +
-                      um_collections.picture.formats.small.url
+                      imgLink + um_collections.picture.formats.small.url
                     }
                     width="460"
                     height="434.59"
@@ -137,6 +133,49 @@ const Home = ({ items, items2, items3, error }) => {
                   </p>
                   <p className="text-center text-xl">
                     {um_collections.description}
+                  </p>
+                  <p className="text-center text-sm text-gray-400 mb-3">
+                    ภาพตัวอย่างสินค้าใช้ในการโฆษณาเท่านั้น
+                  </p>
+                </a>
+              </Link>
+            </div>
+          ))}
+        </div>
+        {/*Manga Cartoon */}
+
+        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
+          Manga Cartoon
+        </h2>
+
+        <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
+          {items4.map((mc_collections) => (
+            <div
+              key={mc_collections.id}
+              className="transition delay-75 duration-300 ease-in-out my-5 px-5 pt-3 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
+            >
+              <Link
+                href="/products/[name]"
+                as={`/products/${mc_collections.name}`}
+                prefetch={false}
+              >
+                <a key={mc_collections.id}>
+                  <img
+                    src={placeholder1}
+                    data-src={
+                      imgLink + mc_collections.picture.formats.small.url
+                    }
+                    width="460"
+                    height="434.59"
+                    alt={mc_collections.picture.name}
+                    className="object-fill w-full mx-auto lazyload"
+                  />
+
+                  <p className="text-center text-3xl font-bold">
+                    {mc_collections.name}
+                  </p>
+                  <p className="text-center text-xl">
+                    {mc_collections.description}
                   </p>
                   <p className="text-center text-sm text-gray-400 mb-3">
                     ภาพตัวอย่างสินค้าใช้ในการโฆษณาเท่านั้น
@@ -179,6 +218,14 @@ export async function getStaticProps(context) {
               formats
             }
           }
+          mCcollections {
+            id
+            name
+            description
+            picture {
+              formats
+            }
+          }
         }
       `,
     });
@@ -187,8 +234,9 @@ export async function getStaticProps(context) {
         items: data.kamenRiders,
         items2: data.spCollections,
         items3: data.umCollections,
+        items4: data.mCcollections,
       },
-      revalidate: 1
+      revalidate: 1,
     };
   } catch (error) {
     return { error };

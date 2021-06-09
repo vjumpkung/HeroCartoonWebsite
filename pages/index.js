@@ -178,7 +178,14 @@ export async function getStaticProps() {
             formats
           }
         }
-        galleries {
+        mCcollections(limit: 2, sort: "id:DESC") {
+          id
+          name
+          picture{
+            formats
+          }
+        }
+        galleries(limit: 1, sort: "id:DESC") {
           id
           picture {
             name
@@ -203,8 +210,9 @@ export async function getStaticProps() {
   });
   const items1 = data.kamenRiders,
     items2 = data.spCollections,
-    items3 = data.umCollections;
-  const mixProducts = [...items1, ...items2, ...items3];
+    items3 = data.umCollections,
+    items4 = data.mCcollections;
+  const mixProducts = [...items1, ...items2, ...items3, ...items4];
   const mixReviews = data.reviews;
   const mixGalleries = data.galleries;
   return {
