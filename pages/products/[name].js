@@ -89,6 +89,7 @@ export const getStaticProps = async ({ params }) => {
           name
           description
           picture {
+            url
             formats
           }
         }
