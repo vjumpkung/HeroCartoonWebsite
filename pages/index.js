@@ -25,7 +25,7 @@ export default function Home({ data1, data2, data3 }) {
           {data1.map((item) => (
             <div
               key={item.id}
-              className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/3 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
+              className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/2 xl:my-6 xl:px-6 xl:w-1/2 hover:shadow-2xl"
             >
               <Link
                 href="/products/[name]"
@@ -43,7 +43,7 @@ export default function Home({ data1, data2, data3 }) {
                     width="464"
                     height="430.59"
                     alt={item.picture.name}
-                    className="object-fill w-full mx-auto lazyload"
+                    className="object-fill w-75 mx-auto lazyload"
                   />
                   <p className="text-center text-3xl font-bold">{item.name}</p>
                   <p className="text-center text-xl">{item.description}</p>
@@ -156,63 +156,87 @@ export async function getStaticProps() {
   //fetch recent product
   const { data } = await client.query({
     query: gql`
-      query {
-        kamenRiders(limit: 2, sort: "id:DESC") {
-          id
-          name
-          picture {
-            formats
-          }
-        }
-        spCollections(limit: 2, sort: "id:DESC") {
-          id
-          name
-          picture {
-            formats
-          }
-        }
-        umCollections(limit: 2, sort: "id:DESC") {
-          id
-          name
-          picture {
-            formats
-          }
-        }
-        mCcollections(limit: 2, sort: "id:DESC") {
-          id
-          name
-          picture{
-            formats
-          }
-        }
-        galleries(limit: 1, sort: "id:DESC") {
-          id
-          picture {
-            name
-            id
-            url
-            width
-            height
-          }
-        }
-        reviews {
-          id
-          picture {
-            name
-            id
-            width
-            height
-            url
-          }
+    query {
+      kamenRiders(limit: 2, sort: "id:DESC") {
+        id
+        name
+        picture {
+          formats
         }
       }
+      spCollections(limit: 2, sort: "id:DESC") {
+        id
+        name
+        picture {
+          formats
+        }
+      }
+      umCollections(limit: 2, sort: "id:DESC") {
+        id
+        name
+        picture {
+          formats
+        }
+      }
+      mCcollections(limit: 2, sort: "id:DESC") {
+        id
+        name
+        picture {
+          formats
+        }
+      }
+      bTshirts(limit: 2, sort: "id:DESC") {
+        id
+        name
+        picture {
+          formats
+        }
+      }
+      gTshirts(limit: 2, sort: "id:DESC") {
+        id
+        name
+        picture {
+          formats
+        }
+      }
+      nTshirts(limit: 2, sort: "id:DESC"){
+        id
+        name
+        picture {
+          formats
+        }
+      }
+      galleries(limit: 1, sort: "id:DESC") {
+        id
+        picture {
+          name
+          id
+          url
+          width
+          height
+        }
+      }
+      reviews {
+        id
+        picture {
+          name
+          id
+          width
+          height
+          url
+        }
+      }
+    } # Write your query or mutation here
     `,
   });
   const items1 = data.kamenRiders,
     items2 = data.spCollections,
     items3 = data.umCollections,
-    items4 = data.mCcollections;
-  const mixProducts = [...items1, ...items2, ...items3, ...items4];
+    items4 = data.mCcollections,
+    items5 = data.bTshirts,
+    items6 = data.gTshirts,
+    items7 = data.nTshirts;
+  const mixProducts = [...items1, ...items2, ...items3, ...items4, ...items5 , ...items6, ...items7];
   const mixReviews = data.reviews;
   const mixGalleries = data.galleries;
   return {

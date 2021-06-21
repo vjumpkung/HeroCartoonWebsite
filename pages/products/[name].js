@@ -63,24 +63,33 @@ export const getStaticProps = async ({ params }) => {
         kamenRiders {
           id
           name
+          description
           picture {
             url
+            width
+            height
             formats
           }
         }
         spCollections {
           id
           name
+          description
           picture {
             url
+            width
+            height
             formats
           }
         }
         umCollections {
           id
           name
+          description
           picture {
             url
+            width
+            height
             formats
           }
         }
@@ -90,6 +99,41 @@ export const getStaticProps = async ({ params }) => {
           description
           picture {
             url
+            width
+            height
+            formats
+          }
+        }
+        bTshirts {
+          id
+          name
+          description
+          picture {
+            url
+            width
+            height
+            formats
+          }
+        }
+        gTshirts {
+          id
+          name
+          description
+          picture {
+            url
+            width
+            height
+            formats
+          }
+        }
+        nTshirts {
+          id
+          name
+          description
+          picture {
+            url
+            width
+            height
             formats
           }
         }
@@ -100,8 +144,11 @@ export const getStaticProps = async ({ params }) => {
   const MR = data.kamenRiders,
     SP = data.spCollections,
     UM = data.umCollections,
-    MC = data.mCcollections;
-  const allProducts = [...MR, ...SP, ...UM, ...MC];
+    MC = data.mCcollections,
+    BT = data.bTshirts,
+    GT = data.gTshirts,
+    NT = data.nTshirts;
+  const allProducts = [...MR, ...SP, ...UM, ...MC, ...BT, ...GT, ...NT];
   const products_data = allProducts.filter(
     (p) => p.name.toString() === params.name
   );
@@ -121,21 +168,33 @@ export const getStaticPaths = async () => {
         kamenRiders {
           id
           name
+          description
           picture {
+            url
+            width
+            height
             formats
           }
         }
         spCollections {
           id
           name
+          description
           picture {
+            url
+            width
+            height
             formats
           }
         }
         umCollections {
           id
           name
+          description
           picture {
+            url
+            width
+            height
             formats
           }
         }
@@ -144,6 +203,42 @@ export const getStaticPaths = async () => {
           name
           description
           picture {
+            url
+            width
+            height
+            formats
+          }
+        }
+        bTshirts {
+          id
+          name
+          description
+          picture {
+            url
+            width
+            height
+            formats
+          }
+        }
+        gTshirts {
+          id
+          name
+          description
+          picture {
+            url
+            width
+            height
+            formats
+          }
+        }
+        nTshirts {
+          id
+          name
+          description
+          picture {
+            url
+            width
+            height
             formats
           }
         }
@@ -153,8 +248,11 @@ export const getStaticPaths = async () => {
   const MR = data.kamenRiders,
     SP = data.spCollections,
     UM = data.umCollections,
-    MC = data.mCcollections;
-  const allProducts = [...MR, ...SP, ...UM, ...MC];
+    MC = data.mCcollections,
+    BT = data.bTshirts,
+    GT = data.gTshirts,
+    NT = data.nTshirts;
+  const allProducts = [...MR, ...SP, ...UM, ...MC, ...BT, ...GT, ...NT];
   const paths = allProducts.map((allProducts_paths) => ({
     params: { name: allProducts_paths.name.toString() },
   }));

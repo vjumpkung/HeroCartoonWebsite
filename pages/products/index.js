@@ -4,7 +4,16 @@ import "lazysizes";
 import { gql } from "@apollo/client";
 import client from "../../apollo-client";
 import { imgLink, placeholder1 } from "../../lib/constant";
-const Home = ({ items, items2, items3, items4, error }) => {
+const Home = ({
+  items,
+  items2,
+  items3,
+  items4,
+  items5,
+  items6,
+  items7,
+  error,
+}) => {
   if (error) {
     return <div>An error occured: {error.message}</div>;
   }
@@ -185,6 +194,117 @@ const Home = ({ items, items2, items3, items4, error }) => {
             </div>
           ))}
         </div>
+        {/*Black T-shirt */}
+
+        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
+          Black T-shirt
+        </h2>
+
+        <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
+          {items5.map((b) => (
+            <div
+              key={b.id}
+              className="transition delay-75 duration-300 ease-in-out my-5 px-5 pt-3 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
+            >
+              <Link
+                href="/products/[name]"
+                as={`/products/${b.name}`}
+                prefetch={false}
+              >
+                <a key={b.id}>
+                  <img
+                    src={placeholder1}
+                    data-src={imgLink + b.picture.formats.small.url}
+                    width="460"
+                    height="434.59"
+                    alt={b.picture.name}
+                    className="object-fill w-full mx-auto lazyload"
+                  />
+
+                  <p className="text-center text-3xl font-bold">{b.name}</p>
+                  <p className="text-center text-xl">{b.description}</p>
+                  <p className="text-center text-sm text-gray-400 mb-3">
+                    ภาพตัวอย่างสินค้าใช้ในการโฆษณาเท่านั้น
+                  </p>
+                </a>
+              </Link>
+            </div>
+          ))}
+        </div>
+        {/*Topdry T-shirt */}
+
+        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
+          Topdry T-shirt
+        </h2>
+
+        <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
+          {items6.map((b) => (
+            <div
+              key={b.id}
+              className="transition delay-75 duration-300 ease-in-out my-5 px-5 pt-3 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
+            >
+              <Link
+                href="/products/[name]"
+                as={`/products/${b.name}`}
+                prefetch={false}
+              >
+                <a key={b.id}>
+                  <img
+                    src={placeholder1}
+                    data-src={imgLink + b.picture.formats.small.url}
+                    width="460"
+                    height="434.59"
+                    alt={b.picture.name}
+                    className="object-fill w-full mx-auto lazyload"
+                  />
+
+                  <p className="text-center text-3xl font-bold">{b.name}</p>
+                  <p className="text-center text-xl">{b.description}</p>
+                  <p className="text-center text-sm text-gray-400 mb-3">
+                    ภาพตัวอย่างสินค้าใช้ในการโฆษณาเท่านั้น
+                  </p>
+                </a>
+              </Link>
+            </div>
+          ))}
+        </div>
+        {/*Navy T-shirt */}
+
+        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
+          Navy Blue T-shirt
+        </h2>
+
+        <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
+          {items7.map((b) => (
+            <div
+              key={b.id}
+              className="transition delay-75 duration-300 ease-in-out my-5 px-5 pt-3 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
+            >
+              <Link
+                href="/products/[name]"
+                as={`/products/${b.name}`}
+                prefetch={false}
+              >
+                <a key={b.id}>
+                  <img
+                    src={placeholder1}
+                    data-src={imgLink + b.picture.formats.small.url}
+                    width="460"
+                    height="434.59"
+                    alt={b.picture.name}
+                    className="object-fill w-full mx-auto lazyload"
+                  />
+
+                  <p className="text-center text-3xl font-bold">{b.name}</p>
+                  <p className="text-center text-xl">{b.description}</p>
+                  <p className="text-center text-sm text-gray-400 mb-3">
+                    ภาพตัวอย่างสินค้าใช้ในการโฆษณาเท่านั้น
+                  </p>
+                </a>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
@@ -226,6 +346,30 @@ export async function getStaticProps(context) {
               formats
             }
           }
+          bTshirts {
+            id
+            name
+            description
+            picture {
+              formats
+            }
+          }
+          gTshirts {
+            id
+            name
+            description
+            picture {
+              formats
+            }
+          }
+          nTshirts {
+            id
+            name
+            description
+            picture {
+              formats
+            }
+          }
         }
       `,
     });
@@ -235,6 +379,9 @@ export async function getStaticProps(context) {
         items2: data.spCollections,
         items3: data.umCollections,
         items4: data.mCcollections,
+        items5: data.bTshirts,
+        items6: data.gTshirts,
+        items7: data.nTshirts,
       },
       revalidate: 1,
     };
