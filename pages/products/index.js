@@ -34,8 +34,8 @@ const Home = ({
               className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
             >
               <Link
-                href="/products/[name]"
-                as={`/products/${kamen_riders.name}`}
+                href="/products/DTG/[name]"
+                as={`/products/DTG/${kamen_riders.name}`}
                 prefetch={false}
               >
                 <a key={kamen_riders.id}>
@@ -77,8 +77,8 @@ const Home = ({
               className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
             >
               <Link
-                href="/products/[name]"
-                as={`/products/${sp_collections.name}`}
+                href="/products/DTG/[name]"
+                as={`/products/DTG/${sp_collections.name}`}
                 prefetch={false}
               >
                 <a key={sp_collections.id}>
@@ -121,8 +121,8 @@ const Home = ({
               className="transition delay-75 duration-300 ease-in-out my-5 px-5 pt-3 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
             >
               <Link
-                href="/products/[name]"
-                as={`/products/${um_collections.name}`}
+                href="/products/DTG/[name]"
+                as={`/products/DTG/${um_collections.name}`}
                 prefetch={false}
               >
                 <a key={um_collections.id}>
@@ -164,8 +164,8 @@ const Home = ({
               className="transition delay-75 duration-300 ease-in-out my-5 px-5 pt-3 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
             >
               <Link
-                href="/products/[name]"
-                as={`/products/${mc_collections.name}`}
+                href="/products/DTG/[name]"
+                as={`/products/DTG/${mc_collections.name}`}
                 prefetch={false}
               >
                 <a key={mc_collections.id}>
@@ -207,8 +207,8 @@ const Home = ({
               className="transition delay-75 duration-300 ease-in-out my-5 px-5 pt-3 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
             >
               <Link
-                href="/products/[name]"
-                as={`/products/${b.name}`}
+                href="/products/DTF/[name]"
+                as={`/products/DTF/${b.name}`}
                 prefetch={false}
               >
                 <a key={b.id}>
@@ -244,8 +244,8 @@ const Home = ({
               className="transition delay-75 duration-300 ease-in-out my-5 px-5 pt-3 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
             >
               <Link
-                href="/products/[name]"
-                as={`/products/${b.name}`}
+                href="/products/DTF/[name]"
+                as={`/products/DTF/${b.name}`}
                 prefetch={false}
               >
                 <a key={b.id}>
@@ -281,8 +281,8 @@ const Home = ({
               className="transition delay-75 duration-300 ease-in-out my-5 px-5 pt-3 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/3 xl:my-6 xl:px-6 xl:w-1/3 hover:shadow-2xl"
             >
               <Link
-                href="/products/[name]"
-                as={`/products/${b.name}`}
+                href="/products/DTF/[name]"
+                as={`/products/DTF/${b.name}`}
                 prefetch={false}
               >
                 <a key={b.id}>

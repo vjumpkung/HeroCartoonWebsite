@@ -1,13 +1,13 @@
 import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import { gql } from "@apollo/client";
-import client from "../../apollo-client";
+import client from "../../../apollo-client";
 import { useRouter } from "next/router";
-import SizeChart from "../../components/SizeChart";
-import Details from "../../components/Details";
+import SizeChartDTF from "../../../components/SizeChartDTF"
+import Details from "../../../components/Details";
 import Head from "next/head";
-import { imgLink } from "../../lib/constant";
+import { imgLink } from "../../../lib/constant";
 
-function MRSPUMCollections({ items }) {
+function DTFcollection({ items }) {
   const router = useRouter();
   if (router.isFallback)
     return (
@@ -47,7 +47,7 @@ function MRSPUMCollections({ items }) {
             <h2 className="text-center text-2xl mb-2">{items.description}</h2>
             <Details />
           </div>
-          <SizeChart />
+          <SizeChartDTF/>
         </div>
         <div className="bg-gradient-to-r from-green-400 to-blue-500 w-full h-1 mb-2"></div>
       </div>
@@ -60,50 +60,6 @@ export const getStaticProps = async ({ params }) => {
   const { data } = await client.query({
     query: gql`
       query {
-        kamenRiders {
-          id
-          name
-          description
-          picture {
-            url
-            width
-            height
-            formats
-          }
-        }
-        spCollections {
-          id
-          name
-          description
-          picture {
-            url
-            width
-            height
-            formats
-          }
-        }
-        umCollections {
-          id
-          name
-          description
-          picture {
-            url
-            width
-            height
-            formats
-          }
-        }
-        mCcollections {
-          id
-          name
-          description
-          picture {
-            url
-            width
-            height
-            formats
-          }
-        }
         bTshirts {
           id
           name
@@ -141,14 +97,11 @@ export const getStaticProps = async ({ params }) => {
     `,
   });
   //parsing
-  const MR = data.kamenRiders,
-    SP = data.spCollections,
-    UM = data.umCollections,
-    MC = data.mCcollections,
+  const 
     BT = data.bTshirts,
     GT = data.gTshirts,
     NT = data.nTshirts;
-  const allProducts = [...MR, ...SP, ...UM, ...MC, ...BT, ...GT, ...NT];
+  const allProducts = [...BT, ...GT, ...NT];
   const products_data = allProducts.filter(
     (p) => p.name.toString() === params.name
   );
@@ -165,50 +118,6 @@ export const getStaticPaths = async () => {
   const { data } = await client.query({
     query: gql`
       query {
-        kamenRiders {
-          id
-          name
-          description
-          picture {
-            url
-            width
-            height
-            formats
-          }
-        }
-        spCollections {
-          id
-          name
-          description
-          picture {
-            url
-            width
-            height
-            formats
-          }
-        }
-        umCollections {
-          id
-          name
-          description
-          picture {
-            url
-            width
-            height
-            formats
-          }
-        }
-        mCcollections {
-          id
-          name
-          description
-          picture {
-            url
-            width
-            height
-            formats
-          }
-        }
         bTshirts {
           id
           name
@@ -245,14 +154,11 @@ export const getStaticPaths = async () => {
       }
     `,
   });
-  const MR = data.kamenRiders,
-    SP = data.spCollections,
-    UM = data.umCollections,
-    MC = data.mCcollections,
+  const 
     BT = data.bTshirts,
     GT = data.gTshirts,
     NT = data.nTshirts;
-  const allProducts = [...MR, ...SP, ...UM, ...MC, ...BT, ...GT, ...NT];
+  const allProducts = [...BT, ...GT, ...NT];
   const paths = allProducts.map((allProducts_paths) => ({
     params: { name: allProducts_paths.name.toString() },
   }));
@@ -260,4 +166,4 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export default MRSPUMCollections;
+export default DTFcollection;

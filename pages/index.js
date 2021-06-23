@@ -1,4 +1,3 @@
-import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import Head from "next/head";
 import Link from "next/link";
 import "lazysizes";
@@ -9,7 +8,7 @@ import dynamic from "next/dynamic";
 import {squareplaceholder,placeholder1,imgLink} from "../lib/constant"
 const Banner = dynamic(() => import("../components/Banner"));
 const Description = dynamic(() => import("../components/Description"));
-export default function Home({ data1, data2, data3 }) {
+export default function Home({ data1, data2, data3, data4 }) {
   return (
     <>
       <Head>
@@ -22,14 +21,48 @@ export default function Home({ data1, data2, data3 }) {
           สินค้าล่าสุด
         </h2>
         <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
-          {data1.map((item) => (
+          {/*DTG T-SHIRT*/} 
+            {data1.map((item) => (
             <div
               key={item.id}
               className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/2 xl:my-6 xl:px-6 xl:w-1/2 hover:shadow-2xl"
             >
               <Link
-                href="/products/[name]"
-                as={`/products/${item.name}`}
+                href="/products/DTG/[name]"
+                as={`/products/DTG/${item.name}`}
+                key={item.id}
+                prefetch={false}
+              >
+                <a>
+                  <img
+                    src={placeholder1}
+                    data-src={
+                      imgLink +
+                      item.picture.formats.small.url
+                    }
+                    width="464"
+                    height="430.59"
+                    alt={item.picture.name}
+                    className="object-fill w-75 mx-auto lazyload"
+                  />
+                  <p className="text-center text-3xl font-bold">{item.name}</p>
+                  <p className="text-center text-xl">{item.description}</p>
+                  <p className="text-center text-sm text-gray-600 font-bold mb-3">
+                    รายละเอียดสินค้า
+                  </p>
+                </a>
+              </Link>
+            </div>
+          ))}
+          {/*DTF T-SHIRT*/} 
+          {data4.map((item) => (
+            <div
+              key={item.id}
+              className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-5 w-full sm:my-6 sm:px-6 md:my-6 md:px-6 md:w-1/2 lg:my-6 lg:px-6 lg:w-1/2 xl:my-6 xl:px-6 xl:w-1/2 hover:shadow-2xl"
+            >
+              <Link
+                href="/products/DTF/[name]"
+                as={`/products/DTF/${item.name}`}
                 key={item.id}
                 prefetch={false}
               >
@@ -70,8 +103,6 @@ export default function Home({ data1, data2, data3 }) {
         <h1 className=" text-3xl lg:text-5xl text-center py-3 font-black">
           รีวิวจากลูกค้า
         </h1>
-        <SimpleReactLightbox>
-          <SRLWrapper>
             <div className="flex flex-wrap-reverse justify-center">
               {data2.map((item) => (
                 <Fragment key={item.id}>
@@ -95,8 +126,6 @@ export default function Home({ data1, data2, data3 }) {
                 </Fragment>
               ))}
             </div>
-          </SRLWrapper>
-        </SimpleReactLightbox>
         <Link href="/reviews" prefetch={false}>
           <a>
             <p className="text-center pt-2">
@@ -112,8 +141,6 @@ export default function Home({ data1, data2, data3 }) {
         <h1 className=" text-3xl lg:text-5xl text-center py-3 font-black">
           Gallery
         </h1>
-        <SimpleReactLightbox>
-          <SRLWrapper>
             <div className="flex flex-wrap-reverse justify-center">
               {data3.slice(-1).map((item) => (
                 <>
@@ -137,8 +164,6 @@ export default function Home({ data1, data2, data3 }) {
                 </>
               ))}
             </div>
-          </SRLWrapper>
-        </SimpleReactLightbox>
         <Link href="/gallery" prefetch={false}>
           <a>
             <p className="text-center pt-2">
@@ -236,14 +261,16 @@ export async function getStaticProps() {
     items5 = data.bTshirts,
     items6 = data.gTshirts,
     items7 = data.nTshirts;
-  const mixProducts = [...items1, ...items2, ...items3, ...items4, ...items5 , ...items6, ...items7];
+  const mixDTG = [...items1, ...items2, ...items3, ...items4];
+  const mixDTF = [...items5 , ...items6, ...items7];
   const mixReviews = data.reviews;
   const mixGalleries = data.galleries;
   return {
     props: {
-      data1: mixProducts,
+      data1: mixDTG,
       data2: mixReviews,
       data3: mixGalleries,
+      data4: mixDTF
     },
     revalidate: 1, // In seconds
   };
