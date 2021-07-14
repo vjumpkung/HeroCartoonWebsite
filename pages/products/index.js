@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRef } from "react";
 import Link from "next/link";
 import "lazysizes";
 import { gql } from "@apollo/client";
@@ -17,14 +18,119 @@ const Home = ({
   if (error) {
     return <div>An error occured: {error.message}</div>;
   }
+  const SP_Collection = useRef(null);
+  const MR_Collection = useRef(null);
+  const UM_Collection = useRef(null);
+  const MC_Collection = useRef(null);
+  const B_Collection = useRef(null);
+  const G_Collection = useRef(null);
+  const N_Collection = useRef(null);
+  const executeScroll_mr = () => MR_Collection.current.scrollIntoView();
+  const executeScroll_sp = () => SP_Collection.current.scrollIntoView();
+  const executeScroll_um = () => UM_Collection.current.scrollIntoView();
+  const executeScroll_mc = () => MC_Collection.current.scrollIntoView();
+  const executeScroll_b = () => B_Collection.current.scrollIntoView();
+  const executeScroll_g = () => G_Collection.current.scrollIntoView();
+  const executeScroll_n = () => N_Collection.current.scrollIntoView();
   return (
     <>
+      <div className="flex flex-wrap md:container md:mx-auto sm:hidden">
+        <div className="w-full md:w-1/3 lg:w-1/4 xl:w-1/4">
+          <p align="center">
+            <Link href="/" prefetch={false}>
+              <a>
+                <button className="bg-gray-600 hover:bg-gray-800 text-white font-bold py-2 px-4 w-4/5 h-10 rounded-md my-2 mx-2">
+                  <span className="text-lg">Home</span>
+                </button>
+              </a>
+            </Link>
+          </p>
+        </div>
+      </div>
+      <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
+        Products สินค้า
+      </h2>
+      <div className="flex flex-wrap md:container md:mx-auto">
+        <div className="w-full md:w-1/3 lg:w-1/4 xl:w-1/4">
+          <p align="center">
+            <button
+              onClick={executeScroll_mr}
+              className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 w-4/5 h-20 rounded-md my-2 mx-2"
+            >
+              <span className="text-lg">MR Collection</span>
+            </button>
+          </p>
+        </div>
+        <div className="w-full md:w-1/3 lg:w-1/4 xl:w-1/4">
+          <p align="center">
+            <button
+              onClick={executeScroll_sp}
+              className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 w-4/5 h-20 rounded-md my-2 mx-2"
+            >
+              <span className="text-lg">SP Collection</span>
+            </button>
+          </p>
+        </div>
+        <div className="w-full md:w-1/3 lg:w-1/4 xl:w-1/4">
+          <p align="center">
+            <button
+              onClick={executeScroll_um}
+              className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 w-4/5 h-20 rounded-md my-2 mx-2"
+            >
+              <span className="text-lg">UM Collection</span>
+            </button>
+          </p>
+        </div>
+        <div className="w-full md:w-1/3 lg:w-1/4 xl:w-1/4">
+          <p align="center">
+            <button
+              onClick={executeScroll_mc}
+              className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 w-4/5 h-20 rounded-md my-2 mx-2"
+            >
+              <span className="text-lg">Manga Cartoon</span>
+            </button>
+          </p>
+        </div>
+        <div className="w-full md:w-1/3 ">
+          <p align="center">
+            <button
+              onClick={executeScroll_b}
+              className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 w-4/5 h-20 rounded-md my-2 mx-2"
+            >
+              <span className="text-lg">Black T-Shirt</span>
+            </button>
+          </p>
+        </div>
+        <div className="w-full md:w-1/3">
+          <p align="center">
+            <button
+              onClick={executeScroll_g}
+              className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 w-4/5 h-20 rounded-md my-2 mx-2"
+            >
+              <span className="text-lg">Topdry T-shirt</span>
+            </button>
+          </p>
+        </div>
+        <div className="w-full md:w-1/3">
+          <p align="center">
+            <button
+              onClick={executeScroll_n}
+              className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 w-4/5 h-20 rounded-md my-2 mx-2"
+            >
+              <span className="text-lg">Navy Blue T-shirt</span>
+            </button>
+          </p>
+        </div>
+      </div>
       <Head>
         <title>Products - เสื้อยืด Hero Cartoon</title>
       </Head>
       <div className="md:container md:mx-auto my-5 px-5 sm:my-6 sm:px-6 md:my-6 md:px-6 lg:my-6 lg:px-6 xl:my-6 xl:px-6">
         {/*MR Collection */}
-        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
+        <h2
+          className="md:text-6xl font-black text-center py-6 text-5xl"
+          ref={MR_Collection}
+        >
           Masked Rider Collections
         </h2>
         <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
@@ -66,7 +172,10 @@ const Home = ({
         </div>
         {/*SP Collection */}
 
-        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
+        <h2
+          className="md:text-6xl font-black text-center py-6 text-5xl"
+          ref={SP_Collection}
+        >
           Special Collections
         </h2>
 
@@ -110,7 +219,10 @@ const Home = ({
         </div>
         {/*UM Collection */}
 
-        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
+        <h2
+          className="md:text-6xl font-black text-center py-6 text-5xl"
+          ref={UM_Collection}
+        >
           Ultraman Collections
         </h2>
 
@@ -153,7 +265,10 @@ const Home = ({
         </div>
         {/*Manga Cartoon */}
 
-        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
+        <h2
+          className="md:text-6xl font-black text-center py-6 text-5xl"
+          ref={MC_Collection}
+        >
           Manga Cartoon
         </h2>
 
@@ -196,7 +311,10 @@ const Home = ({
         </div>
         {/*Black T-shirt */}
 
-        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
+        <h2
+          className="md:text-6xl font-black text-center py-6 text-5xl"
+          ref={B_Collection}
+        >
           Black T-shirt
         </h2>
 
@@ -233,7 +351,10 @@ const Home = ({
         </div>
         {/*Topdry T-shirt */}
 
-        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
+        <h2
+          className="md:text-6xl font-black text-center py-6 text-5xl"
+          ref={G_Collection}
+        >
           Topdry T-shirt
         </h2>
 
@@ -270,7 +391,10 @@ const Home = ({
         </div>
         {/*Navy T-shirt */}
 
-        <h2 className="md:text-6xl font-black text-center py-6 text-5xl">
+        <h2
+          className="md:text-6xl font-black text-center py-6 text-5xl"
+          ref={N_Collection}
+        >
           Navy Blue T-shirt
         </h2>
 

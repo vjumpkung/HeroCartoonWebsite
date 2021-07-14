@@ -4,6 +4,12 @@ import dynamic from "next/dynamic";
 import NProgress from "nprogress";
 import Head from "next/head";
 import Router from "next/router";
+const ScrollArrow = dynamic(
+  () => {
+    return import("../components/ScrollArrow");
+  },
+  { ssr: false }
+);
 const LazyLoadMessenger = dynamic(() => import("../components/LazyLoadMessenger"))
 const Layout = dynamic(() => import("../components/Layout"));
 
@@ -51,6 +57,11 @@ function MyApp({ Component, pageProps, route }) {
         />
       </Head>
       <LazyLoadMessenger />
+      <div className="flex justify-end mx-16 sm:mx-20 md:mx-22 lg:mx-22">
+        <div className="">
+          <ScrollArrow/>
+        </div>
+      </div>
       <Layout>
         <Component {...pageProps} key={route} />
       </Layout>

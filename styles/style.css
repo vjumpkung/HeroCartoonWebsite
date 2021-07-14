@@ -1,19 +1,20 @@
 /* purgecss start ignore */
 @font-face {
-  font-family: 'icomoon';
-  src:  url('/fonts/icomoon.eot?angnyg');
-  src:  url('/fonts/icomoon.eot?angnyg#iefix') format('embedded-opentype'),
-    url('/fonts/icomoon.ttf?angnyg') format('truetype'),
-    url('/fonts/icomoon.woff?angnyg') format('woff'),
-    url('/fonts/icomoon.svg?angnyg#icomoon') format('svg');
+  font-family: "icomoon";
+  src: url("/fonts/icomoon.eot?angnyg");
+  src: url("/fonts/icomoon.eot?angnyg#iefix") format("embedded-opentype"),
+    url("/fonts/icomoon.ttf?angnyg") format("truetype"),
+    url("/fonts/icomoon.woff?angnyg") format("woff"),
+    url("/fonts/icomoon.svg?angnyg#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
+  font-family: "icomoon" !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -36,5 +37,34 @@
 }
 .icon-facebook2:before {
   content: "\ea91";
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.scrollTop {
+  position: fixed;
+  width: 40px;
+  bottom: 100px;
+  height: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.3s;
+  transition: opacity 0.4s;
+  opacity: 0.5;
+}
+
+.scrollTop:hover {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
 /* purgecss end ignore */

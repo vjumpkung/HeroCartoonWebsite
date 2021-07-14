@@ -1,5 +1,6 @@
 // /next.config.js
 module.exports = {
+  cleanDistDir: true,
   images: {
     domains: ["admin.herocartoontshirt.com"],
   },
