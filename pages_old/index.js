@@ -220,77 +220,86 @@ export async function getStaticProps() {
   //fetch recent product
   const { data } = await client.query({
     query: gql`
-      query {
-        kamenRiders(limit: 2, sort: "id:DESC") {
-          id
+    query {
+      kamenriders(limit: 2, sort: "id:DESC") {
+        id
+        name
+        picture {
+          formats
+        }
+      }
+      spCollections(limit: 2, sort: "id:DESC") {
+        id
+        name
+        picture {
+          formats
+        }
+      }
+      umCollections(limit: 2, sort: "id:DESC") {
+        id
+        name
+        picture {
+          formats
+        }
+      }
+      mCcollections(limit: 2, sort: "id:DESC") {
+        id
+        name
+        picture {
+          formats
+        }
+      }
+      bTshirts(limit: 2, sort: "id:DESC") {
+        id
+        name
+        picture {
+          formats
+        }
+      }
+      gTshirts(limit: 2, sort: "id:DESC") {
+        id
+        name
+        picture {
+          formats
+        }
+      }
+      nTshirts(limit: 2, sort: "id:DESC") {
+        id
+        name
+        picture {
+          formats
+        }
+      }
+      btTshirts(limit: 2,sort: "id:DESC"){
+        id
+        name
+        picture {
+          formats
+        }  
+      }
+      galleries(limit: 4, sort: "id:DESC") {
+        id
+        picture {
           name
-          picture {
-            formats
-          }
-        }
-        spCollections(limit: 2, sort: "id:DESC") {
           id
+          url
+          width
+          height
+          formats
+        }
+      }
+      reviews(limit: 4, sort: "id:DESC") {
+        id
+        picture {
           name
-          picture {
-            formats
-          }
-        }
-        umCollections(limit: 2, sort: "id:DESC") {
           id
-          name
-          picture {
-            formats
-          }
+          width
+          height
+          url
+          formats
         }
-        mCcollections(limit: 2, sort: "id:DESC") {
-          id
-          name
-          picture {
-            formats
-          }
-        }
-        bTshirts(limit: 2, sort: "id:DESC") {
-          id
-          name
-          picture {
-            formats
-          }
-        }
-        gTshirts(limit: 2, sort: "id:DESC") {
-          id
-          name
-          picture {
-            formats
-          }
-        }
-        nTshirts(limit: 2, sort: "id:DESC") {
-          id
-          name
-          picture {
-            formats
-          }
-        }
-        galleries(limit: 1, sort: "id:DESC") {
-          id
-          picture {
-            name
-            id
-            url
-            width
-            height
-          }
-        }
-        reviews {
-          id
-          picture {
-            name
-            id
-            width
-            height
-            url
-          }
-        }
-      } # Write your query or mutation here
+      }
+    } # Write your query or mutation here
     `,
   });
   const items1 = data.kamenRiders,
@@ -299,9 +308,10 @@ export async function getStaticProps() {
     items4 = data.mCcollections,
     items5 = data.bTshirts,
     items6 = data.gTshirts,
-    items7 = data.nTshirts;
+    items7 = data.nTshirts,
+    items8 = data.bTtshirts;
   const mixDTG = [...items1, ...items2, ...items3, ...items4];
-  const mixDTF = [...items5, ...items6, ...items7];
+  const mixDTF = [...items5, ...items6, ...items7, ...items8];
   const mixReviews = data.reviews;
   const mixGalleries = data.galleries;
   return {
