@@ -62,7 +62,7 @@ export const getStaticProps = async ({ params }) => {
     query: gql`
     # Write your query or mutation here
     query {
-      kamenriders {
+      kamenriders(limit : -1000) {
         id
         name
         description
@@ -71,7 +71,7 @@ export const getStaticProps = async ({ params }) => {
           formats
         }
       }
-      spCollections {
+      spCollections(limit : -1000) {
         id
         name
         description
@@ -80,7 +80,7 @@ export const getStaticProps = async ({ params }) => {
           formats
         }
       }
-      umCollections {
+      umCollections(limit : -1000) {
         id
         name
         description
@@ -89,7 +89,7 @@ export const getStaticProps = async ({ params }) => {
           formats
         }
       }
-      mCcollections{
+      mCcollections(limit : -1000){
         id
         name
         description
@@ -124,7 +124,7 @@ export const getStaticPaths = async () => {
     query: gql`
     # Write your query or mutation here
     query {
-      kamenriders {
+      kamenriders(limit : -1000){
         id
         name
         description
@@ -132,7 +132,7 @@ export const getStaticPaths = async () => {
           formats
         }
       }
-      spCollections {
+      spCollections(limit : -1000) {
         id
         name
         description
@@ -140,7 +140,7 @@ export const getStaticPaths = async () => {
           formats
         }
       }
-      umCollections {
+      umCollections(limit : -1000) {
         id
         name
         description
@@ -148,7 +148,7 @@ export const getStaticPaths = async () => {
           formats
         }
       }
-      mCcollections{
+      mCcollections(limit : -1000){
         id
         name
         description
