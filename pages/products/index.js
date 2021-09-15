@@ -490,7 +490,7 @@ export async function getStaticProps() {
       query: gql`
       # Write your query or mutation here
       query {
-        kamenriders {
+        kamenriders(limit: -1000) {
           id
           name
           description
@@ -498,7 +498,7 @@ export async function getStaticProps() {
             formats
           }
         }
-        spCollections {
+        spCollections(limit: -1000) {
           id
           name
           description
@@ -506,7 +506,7 @@ export async function getStaticProps() {
             formats
           }
         }
-        umCollections {
+        umCollections(limit: -1000) {
           id
           name
           description
@@ -514,7 +514,7 @@ export async function getStaticProps() {
             formats
           }
         }
-        mCcollections{
+        mCcollections(limit: -1000){
           id
           name
           description
@@ -522,7 +522,7 @@ export async function getStaticProps() {
             formats
           }
         }
-        bTshirts {
+        bTshirts(limit: -1000) {
           id
           name
           description
@@ -530,7 +530,7 @@ export async function getStaticProps() {
             formats
           }
         }
-        gTshirts {
+        gTshirts(limit: -1000) {
           id
           name
           description
@@ -538,7 +538,7 @@ export async function getStaticProps() {
             formats
           }
         }
-        nTshirts {
+        nTshirts(limit: -1000) {
           id
           name
           description
@@ -546,7 +546,7 @@ export async function getStaticProps() {
             formats
           }
         }
-        btTshirts {
+        btTshirts(limit: -1000) {
           id
           name
           description

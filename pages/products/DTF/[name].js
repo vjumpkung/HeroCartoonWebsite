@@ -61,7 +61,7 @@ export const getStaticProps = async ({ params }) => {
   const { data } = await client.query({
     query: gql`
       query {
-        bTshirts {
+        bTshirts(limit: -1000) {
           id
           name
           description
@@ -70,7 +70,7 @@ export const getStaticProps = async ({ params }) => {
             formats
           }
         }
-        gTshirts {
+        gTshirts(limit: -1000) {
           id
           name
           description
@@ -79,7 +79,7 @@ export const getStaticProps = async ({ params }) => {
             formats
           }
         }
-        nTshirts {
+        nTshirts(limit: -1000) {
           id
           name
           description
@@ -88,7 +88,7 @@ export const getStaticProps = async ({ params }) => {
             formats
           }
         }
-        btTshirts {
+        btTshirts(limit: -1000) {
           id
           name
           description
