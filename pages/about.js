@@ -36,7 +36,7 @@ const About = () => {
               <span className="icon-line"></span> : @004ktxqi
             </p>
           </a>
-          <a href="https://herocartoontshirt.my.to">
+          <a href="https://herocartoontshirt.com">
             <p className="text-xl my-2 text-center ">
               <span className="icon-earth"></span> : www.herocartoontshirt.com
             </p>
