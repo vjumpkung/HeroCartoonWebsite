@@ -17,7 +17,8 @@
     "fs": "^0.0.1-security",
     "fslightbox": "^3.2.3",
     "globby": "^11.0.3",
-    "graphql": "^15.5.0",
+    "graphql": "^16.3.0",
+    "graphql-request": "^4.1.0",
     "lazysizes": "^5.3.2",
     "next": "12",
     "nprogress": "^0.2.0",
@@ -31,6 +32,7 @@
     "react-live-chat-loader": "^2.3.3",
     "react-scroll": "^1.8.2",
     "simple-react-lightbox": "^3.6.6",
+    "swr": "^1.2.2",
     "tailwindcss": "^2.1.2"
   }
 }
