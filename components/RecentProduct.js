@@ -7,7 +7,7 @@ export default function RecentProduct(items) {
       <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
         {Object.values(items).map((item) => {
           return Object.values(item).map((x) =>
-            x.reverse().map((p) => (
+            x.map((p) => (
               <div 
               key={p.id}
               id={p.id}
