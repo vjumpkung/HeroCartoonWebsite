@@ -39,10 +39,6 @@
   content: "\ea91";
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 .scrollTop {
   position: fixed;
   width: 40px;
