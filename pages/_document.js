@@ -19,6 +19,12 @@ class MyDocument extends Document {
                     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
                     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
                     <link rel="manifest" href="/manifest.json" />
+                    <link
+                    rel="preload"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
+                    as="style"
+                    />
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"/>
                     <meta name="msapplication-TileColor" content="#ffffff" />
                     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
                     <meta name="theme-color" content="#ffffff"></meta>
