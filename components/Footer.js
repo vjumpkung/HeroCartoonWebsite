@@ -15,12 +15,11 @@ export default function Footer() {
           <div className="flex flex-wrap  overflow-hidden  justify-center">
             <div className=" w-full overflow-hidden md:w-1/2  lg:w-1/2  xl:w-1/4 ">
               <img
-                className="hidden lg:block h-8 w-auto"
+                className="hidden lg:block h-8 w-auto mx-auto pt-2"
                 src="/logo.png"
                 alt="Hero Cartoon Tshirt"
                 width="199.42"
                 height="32"
-                className="mx-auto pt-2"
                 loading="lazy"
               />
               <div className="flex">
@@ -67,7 +66,7 @@ export default function Footer() {
               </a>
               <a href="https://line.me/R/ti/p/%40004ktxqi">
                 <p className="text-xl my-2 text-center text-green-500">
-                  <span className="icon-line"></span> : @004ktxqi
+                  <span className="icon-line"></span> : @herocartoon
                 </p>
               </a>
               <a href="https://herocartoontshirt.com">

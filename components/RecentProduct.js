@@ -20,7 +20,7 @@ export default function RecentProduct(items) {
                   alt={p.name}
                   className="object-fill h-auto w-1/2 mx-auto lazyload"
                 />
-                <p className="text-center text-3xl font-bold">{p.name}</p>
+                <p key={p.id} className="text-center text-3xl font-bold">{p.name}</p>
                 <p className="text-center text-sm text-gray-400 mb-3">
                   ภาพตัวอย่างสินค้าใช้ในการโฆษณาเท่านั้น
                 </p>
