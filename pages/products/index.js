@@ -36,7 +36,7 @@ export async function getStaticProps(){
     const { data } = await client2.query({
         query: gql`
         query MyQuery {
-          mrcollections {
+          mrcollections(last:999) {
             id
             name
             picture {
@@ -45,7 +45,7 @@ export async function getStaticProps(){
               height
             }
           }
-          sPcollections {
+          sPcollections(last:999) {
             id
             name
             picture {
@@ -54,7 +54,7 @@ export async function getStaticProps(){
               height
             }
           }
-          uMcollections {
+          uMcollections(last:999) {
             id
             name
             picture {
@@ -63,7 +63,7 @@ export async function getStaticProps(){
               height
             }
           }
-          mCcollections {
+          mCcollections(last:999) {
             id
             name
             picture {
@@ -72,7 +72,7 @@ export async function getStaticProps(){
               height
             }
           }
-          blacks{
+          blacks(last:999) {
             id
             name
             picture{
@@ -81,7 +81,7 @@ export async function getStaticProps(){
               height
             }
           }
-          navyblues{
+          navyblues(last:999) {
             id
             name
             picture{
