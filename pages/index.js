@@ -50,6 +50,7 @@ export async function getStaticProps(){
   const { data } = await client2.query({
       query: gql`
       query MyQuery {
+      query MyQuery {
         blacks(last:2) {
           id
           name
