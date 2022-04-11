@@ -50,6 +50,24 @@ export async function getStaticProps(){
   const { data } = await client2.query({
       query: gql`
       query MyQuery {
+        blacks(last:2) {
+          id
+          name
+          picture{
+            url
+            width
+            height
+          }
+        }
+        navyblues(last:2) {
+          id
+          name
+          picture{
+            url
+            width
+            height
+          }
+        }
         mrcollections(last:2) {
           id
           name
@@ -81,24 +99,6 @@ export async function getStaticProps(){
           id
           name
           picture {
-            url
-            width
-            height
-          }
-        }
-        blacks(last:2) {
-          id
-          name
-          picture{
-            url
-            width
-            height
-          }
-        }
-        navyblues(last:2) {
-          id
-          name
-          picture{
             url
             width
             height
