@@ -27,17 +27,8 @@ function MyApp({ Component, pageProps, route }) {
       <Head>
         <link rel="dns-prefetch" href="https://admin.herocartoontshirt.com/" />
         <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-        <link
-          rel="preload"
-          href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
-          as="style"
-        />
         <link rel="preconnect" href="https://admin.herocartoontshirt.com/" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
-        />
         <meta
           name="description"
           content="มาย้อนเวลาคิดถึงความสุขในวัยเด็กกับเสื้อยืดฮีโร่การ์ตูน
