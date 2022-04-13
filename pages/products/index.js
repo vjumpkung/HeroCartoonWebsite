@@ -35,26 +35,8 @@ export default function Products({items}){
 export async function getStaticProps(){
     const { data } = await client2.query({
         query: gql`
-        query MyQuery {
-          blacks(last:999) {
-            id
-            name
-            picture{
-              url
-              width
-              height
-            }
-          }
-          navyblues(last:999) {
-            id
-            name
-            picture{
-              url
-              width
-              height
-            }
-          }
-          mrcollections(last:999) {
+        query QueryX {
+          blacks(last: 999) {
             id
             name
             picture {
@@ -63,7 +45,7 @@ export async function getStaticProps(){
               height
             }
           }
-          sPcollections(last:999) {
+          mrcollections(last: 999) {
             id
             name
             picture {
@@ -72,7 +54,7 @@ export async function getStaticProps(){
               height
             }
           }
-          uMcollections(last:999) {
+          navyblues(last: 999) {
             id
             name
             picture {
@@ -81,7 +63,7 @@ export async function getStaticProps(){
               height
             }
           }
-          mCcollections(last:999) {
+          uMcollections(last: 999) {
             id
             name
             picture {
@@ -90,8 +72,34 @@ export async function getStaticProps(){
               height
             }
           }
-        }
-        
+          grays(last: 999) {
+            id
+            name
+            picture {
+              url
+              width
+              height
+            }
+          }
+          sPcollections(last: 999) {
+            id
+            name
+            picture {
+              url
+              width
+              height
+            }
+          }
+          mCcollections(last: 999) {
+            id
+            name
+            picture {
+              url
+              width
+              height
+            }
+          }
+        } 
         `
           });
     return {

@@ -49,26 +49,8 @@ export default function Home({items}) {
 export async function getStaticProps(){
   const { data } = await client2.query({
       query: gql`
-      query MyQuery {
-        blacks(last:2) {
-          id
-          name
-          picture{
-            url
-            width
-            height
-          }
-        }
-        navyblues(last:2) {
-          id
-          name
-          picture{
-            url
-            width
-            height
-          }
-        }
-        mrcollections(last:2) {
+      query Query2 {
+        blacks(last: 2) {
           id
           name
           picture {
@@ -77,7 +59,7 @@ export async function getStaticProps(){
             height
           }
         }
-        sPcollections(last:2) {
+        mrcollections(last: 2) {
           id
           name
           picture {
@@ -86,7 +68,7 @@ export async function getStaticProps(){
             height
           }
         }
-        uMcollections(last:2) {
+        navyblues(last: 2) {
           id
           name
           picture {
@@ -95,7 +77,7 @@ export async function getStaticProps(){
             height
           }
         }
-        mCcollections(last:2) {
+        uMcollections(last: 2) {
           id
           name
           picture {
@@ -104,14 +86,39 @@ export async function getStaticProps(){
             height
           }
         }
-      }
-      
-      
+        grays(last: 2) {
+          id
+          name
+          picture {
+            url
+            width
+            height
+          }
+        }
+        sPcollections(last: 2) {
+          id
+          name
+          picture {
+            url
+            width
+            height
+          }
+        }
+        mCcollections(last: 2) {
+          id
+          name
+          picture {
+            url
+            width
+            height
+          }
+        }
+      }      
       `
         });
   return {
       props: {
-          items: data
+          items: Object.keys(data).map((k,index)=>data[k].reverse())
       },
       revalidate: 1,
   }
