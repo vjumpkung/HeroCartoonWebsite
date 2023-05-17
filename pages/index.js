@@ -28,6 +28,14 @@ export default function Home({ items }) {
         <h2 className="md:text-6xl font-black text-center py-3 text-5xl">
           สินค้าล่าสุด
         </h2>
+        <div className="md:flex md:flex-wrap justify-center">
+          <img
+            src="Banner-Size-DFT-4.png"
+            className="md:w-1/2 lazyload"
+            width={744}
+            height={839}
+          ></img>
+        </div>
         <div className="md:flex md:flex-wrap -mx-5 sm:-mx-6 md:-mx-6 lg:-mx-6 xl:-mx-6 justify-center">
           <RecentProduct items={items} />
         </div>
