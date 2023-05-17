@@ -51,6 +51,7 @@ export async function getStaticProps() {
         banners(last: 10) {
           id
           name
+          url
           picture {
             url
             width

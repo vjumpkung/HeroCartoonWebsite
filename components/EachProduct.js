@@ -1,5 +1,5 @@
 import "lazysizes";
-import { placeholder1 } from "../lib/constant";
+import { placeholder1, imgLink } from "../lib/constant";
 
 export default function ProductCode(items) {
   return (
@@ -8,13 +8,14 @@ export default function ProductCode(items) {
         {Object.values(items).map((item) => {
           return Object.values(item).map((x) =>
             x.map((p) => (
-              <div 
-              id={p.id}
-              key={p.id}
-              className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-1 sm:my-5 sm:px-1 md:my-6 md:px-6 md:w-1/4 lg:my-6 lg:px-2 lg:w-1/6 xl:my-6 xl:px-2 xl:w-1/8 hover:shadow-2xl">
+              <div
+                id={p.id}
+                key={p.id}
+                className="pt-3 transition delay-75 duration-300 ease-in-out my-5 px-1 sm:my-5 sm:px-1 md:my-6 md:px-6 md:w-1/4 lg:my-6 lg:px-2 lg:w-1/6 xl:my-6 xl:px-2 xl:w-1/8 hover:shadow-2xl"
+              >
                 <img
                   src={placeholder1}
-                  data-src={p.picture.url}
+                  data-src={imgLink + p.url.trim()}
                   width={p.picture.width}
                   height={p.picture.height}
                   alt={p.name}

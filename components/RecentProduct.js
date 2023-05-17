@@ -1,5 +1,5 @@
 import "lazysizes";
-import { placeholder1 } from "../lib/constant";
+import { placeholder1, imgLink } from "../lib/constant";
 
 export default function RecentProduct(items) {
   return (
@@ -15,7 +15,7 @@ export default function RecentProduct(items) {
               >
                 <img
                   src={placeholder1}
-                  data-src={p.picture.url}
+                  data-src={imgLink + p.url.trim()}
                   width={p.picture.width}
                   height={p.picture.height}
                   alt={p.name}
