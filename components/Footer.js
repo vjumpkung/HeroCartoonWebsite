@@ -3,8 +3,6 @@ import Link from "next/link";
 const navigation = [
   { name: "หน้าแรก", href: "/", current: false },
   { name: "สินค้า", href: "/products", current: false },
-  { name: "รูปภาพ", href: "/gallery", current: false },
-  { name: "รีวิว", href: "/reviews", current: false },
   { name: "เกี่ยวกับ", href: "/about", current: false },
 ];
 export default function Footer() {
@@ -61,7 +59,8 @@ export default function Footer() {
               </a>
               <a href="https://www.facebook.com/herocartoontshirt">
                 <p className="text-xl my-2 text-center text-blue-500">
-                  <span className="icon-facebook2"></span> : เสื้อยืด Hero Cartoon
+                  <span className="icon-facebook2"></span> : เสื้อยืด Hero
+                  Cartoon
                 </p>
               </a>
               <a href="https://line.me/R/ti/p/%40004ktxqi">
