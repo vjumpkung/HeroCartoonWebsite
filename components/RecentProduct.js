@@ -15,7 +15,7 @@ export default function RecentProduct(items) {
               >
                 <img
                   src={placeholder1}
-                  data-src={imgLink + p.url.trim()}
+                  data-src={p.picture.url}
                   width={p.picture.width}
                   height={p.picture.height}
                   alt={p.name}
